@@ -15,4 +15,8 @@ export default {
 <style lang="scss">
 @import './scss/reset';
 @import './scss/utiltities';
+
+body {
+  font-family: sans-serif;
+}
 </style>
