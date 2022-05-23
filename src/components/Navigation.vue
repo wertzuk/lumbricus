@@ -1,7 +1,7 @@
 <template>
   <nav class="nav">
     <ul class="flex justify-between nav__list">
-      <router-link to="/home">Home</router-link>
+      <router-link to="/">Home</router-link>
       <router-link to="/vortragsveranstaltungen"
         >Vortragsveranstaltungen</router-link
       >
@@ -18,15 +18,14 @@ export default {};
 
 <style lang="scss">
 @import '../scss/utiltities';
+@import '../scss/vars';
 
 .nav {
-  position: absolute;
-  top: 120%;
-  left: 10%;
-  right: 10%;
-  background: rgb(15, 119, 15);
+  width: 80%;
+  background: $main-clr-bg;
   border-radius: 35px;
   padding-inline: 10%;
+  margin: 1rem auto 0;
   &__list {
     list-style: none;
     width: 100%;

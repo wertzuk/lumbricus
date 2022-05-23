@@ -22,8 +22,10 @@ export default {
 
 .header {
   position: relative;
-  padding: 1rem 3rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  &__top {
+    padding: 1rem 3rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
   h1 {
     font-weight: 400;
     font-size: 2rem;
