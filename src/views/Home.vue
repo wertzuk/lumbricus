@@ -15,37 +15,16 @@
 
   <section>
     <div class="big-img">
-      <img src="../assets/big-img.jpg" alt="" />
+      <img src="../assets/big-img.jpg" alt="" loading="lazy" />
     </div>
   </section>
 
-  <section>
-    <div class="shapes">
-      <div class="shape shape-1">
-        <img src="../assets/slide-1.jpg" alt="" />
-      </div>
-      <div class="shape shape-2">
-        <img src="../assets/slide-2.jpg" alt="" />
-      </div>
-      <div class="shape shape-3">
-        <img src="../assets/slide-3.jpg" alt="" />
-      </div>
-      <div class="shape shape-4">
-        <img src="../assets/slide-4.jpg" alt="" />
-      </div>
-      <div class="shape shape-2">
-        <img src="../assets/slide-5.jpg" alt="" />
-      </div>
-      <div class="shape shape-3">
-        <img src="../assets/slide-6.jpg" alt="" />
-      </div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-4"></div>
-    </div>
+  <section class="carousel">
+    <Carousel />
+  </section>
+
+  <section class="program">
+    <h1>Unser Programm im Überblick</h1>
   </section>
 
   <!-- <div class="home flex flex-col">
@@ -53,9 +32,11 @@
 </template>
 
 <script>
+import Carousel from '../components/Carousel.vue';
+
 export default {
   name: 'Home',
-  components: {},
+  components: { Carousel },
 };
 </script>
 
@@ -107,45 +88,11 @@ export default {
   }
 }
 
-.shapes {
-  display: grid;
-  grid-auto-columns: 1fr;
-  grid-auto-flow: column;
-  margin: 6rem 0;
-  transition: transform 0.2s;
-  gap: 2rem;
-  &:hover {
-    // transform: translateX(-600px);
-  }
-}
-.shape {
-  width: 300px;
-  aspect-ratio: 11/16;
-  border: 4px solid $main-clr-bg;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.05);
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+.corousel {
+  margin: 10rem 0;
 }
 
-.shape-1 {
-  border-radius: 150px;
-}
-.shape-2 {
-  border-radius: 150px 150px 0 0;
-}
-.shape-3 {
-  // width: 120px;
-  border-radius: 150px;
-}
-.shape-4 {
-  border-radius: 150px;
+.program {
+  margin-inline: 10%;
 }
 </style>

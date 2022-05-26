@@ -1,5 +1,5 @@
 module.exports = {
-  /*eslint linebreak-style: ["error", "windows"]*/
+  /* eslint linebreak-style: ["error", "windows"] */
   root: true,
   env: {
     node: true,
