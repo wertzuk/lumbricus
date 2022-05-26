@@ -55,7 +55,6 @@ export default {
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
-  margin: 10rem 0;
   transition: transform 0.2s;
   gap: 2rem;
 }

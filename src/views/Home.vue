@@ -19,12 +19,16 @@
     </div>
   </section>
 
+  <section class="events">
+    <Events />
+  </section>
+
   <section class="carousel">
     <Carousel />
   </section>
 
   <section class="program">
-    <h1>Unser Programm auf einen Blick</h1>
+    <h1 class="section-heading">Unser Programm auf einen Blick</h1>
     <!-- TODO Embed in spereate C  -->
     <ul>
       <li class="program__item">Wildkräuterwanderung (mit Verkostung)</li>
@@ -45,11 +49,12 @@
 </template>
 
 <script>
+import Events from '@/components/Events.vue';
 import Carousel from '../components/Carousel.vue';
 
 export default {
   name: 'Home',
-  components: { Carousel },
+  components: { Carousel, Events },
 };
 </script>
 
@@ -102,16 +107,16 @@ export default {
 }
 
 .corousel {
-  margin: 10rem 0;
+  margin-block: 8rem;
+}
+
+.events,
+.program {
+  margin: 10rem 10%;
 }
 
 .program {
   margin-inline: 10%;
-  h1 {
-    font-size: 4rem;
-    font-weight: 400;
-    margin: 1rem 0 2rem;
-  }
 }
 .program,
 .program__item {

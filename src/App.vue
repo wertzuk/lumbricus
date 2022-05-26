@@ -22,4 +22,14 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
 }
+
+.section-heading {
+  font-size: 4rem;
+  font-weight: 400;
+  margin: 1rem 0 2rem;
+}
+
+.hidden {
+  display: none;
+}
 </style>
