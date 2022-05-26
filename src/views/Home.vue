@@ -24,11 +24,24 @@
   </section>
 
   <section class="program">
-    <h1>Unser Programm im Überblick</h1>
+    <h1>Unser Programm auf einen Blick</h1>
+    <!-- TODO Embed in spereate C  -->
+    <ul>
+      <li class="program__item">Wildkräuterwanderung (mit Verkostung)</li>
+      <li class="program__item">Kräuterseminare</li>
+      <li class="program__item">Erlebniskurse</li>
+      <li class="program__item">Vortragsveranstalungen</li>
+      <li class="program__item">Walderlebnistage</li>
+      <li class="program__item">Waldgeburtstage</li>
+      <li class="program__item">Ferienprogramm/Nachmittagsbeteuung</li>
+      <li class="program__item">
+        umweltbezogene Unterrichtsbegleitung (für alle Schulformen und
+        Klassenstufen)
+      </li>
+      <li class="program__item">naturbezogene Kinder-Workshops</li>
+      <li class="program__item">Lesungen zu allen Anlässen</li>
+    </ul>
   </section>
-
-  <!-- <div class="home flex flex-col">
-  </div> -->
 </template>
 
 <script>
@@ -94,5 +107,21 @@ export default {
 
 .program {
   margin-inline: 10%;
+  h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 1rem 0 2rem;
+  }
 }
+.program,
+.program__item {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+}
+
+.program__item {
+  padding: 1em;
+}
+
+// .program,
 </style>
