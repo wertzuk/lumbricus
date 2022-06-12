@@ -1,32 +1,28 @@
 <template>
-  <div class="shapes">
-    <div class="shape" v-for="image in images" :key="image">
-      <img :src="require(`../assets/${image}`)" :alt="image" />
-    </div>
-    <div class="arrow arrow-left">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20">
-        <path
-          fill="none"
-          stroke="#FFF"
-          stroke-width="2"
-          d="M1 1l8.836 8.836L1 18.671"
+  <div class="shapes-wrapper">
+    <div class="shapes" ref="shapes">
+      <div class="shape" v-for="image in images" :key="image">
+        <img
+          class="shape__img"
+          :src="require(`../assets/${image}`)"
+          :alt="image"
         />
-      </svg>
+      </div>
     </div>
-    <div class="arrow arrow-right">
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="20">
-        <path
-          fill="none"
-          stroke="#FFF"
-          stroke-width="2"
-          d="M1 1l8.836 8.836L1 18.671"
-        />
-      </svg>
+  </div>
+  <div class="arrows flex justify-between">
+    <div class="arrow arrow-left" @click="showPrevImages">
+      <img src="../assets/icons/icon_down.png" alt="" />
+    </div>
+    <div class="arrow arrow-right" @click="showNextImages">
+      <img src="../assets/icons/icon_down.png" alt="" />
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+
 export default {
   setup() {
     const images = [
@@ -41,8 +37,26 @@ export default {
       'slide-6.jpg',
     ];
 
+    const counter = ref(0);
+
+    const shapes = ref(null);
+
+    function showNextImages() {
+      counter.value -= 100;
+      shapes.value.style.transform = `translateX(${counter.value}vw)`;
+    }
+
+    function showPrevImages() {
+      counter.value += 100;
+      shapes.value.style.transform = `translateX(${counter.value}vw)`;
+    }
+
     return {
       images,
+      shapes,
+      showNextImages,
+      showPrevImages,
+      counter,
     };
   },
 };
@@ -50,12 +64,13 @@ export default {
 
 <style lang="scss">
 @import '../scss/vars';
+.shapes-wrapper {
+}
 .shapes {
-  position: relative;
   display: grid;
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
-  transition: transform 0.2s;
+  transition: transform 600ms ease-in-out;
   gap: 2rem;
 }
 .shape {
@@ -66,13 +81,13 @@ export default {
   border-radius: $shape-border-radius;
   transition: transform 0.2s;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-  }
-  img {
+  &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  &:hover {
+    transform: scale(1.05);
   }
 
   &:nth-child(1),
@@ -86,30 +101,28 @@ export default {
   }
 }
 
-// .arrow {
-//   position: absolute;
-//   height: 100px;
-//   width: 100px;
-//   background-color: rgba(0, 0, 0, 0.3);
-//   display: grid;
-//   place-items: center;
-//   z-index: 100;
-//   &:hover {
-//     background-color: rgba(0, 0, 0, 0.4);
-//   }
-// }
+.arrows {
+  width: 100%;
+}
 
-// .arrow-right {
-//   left: calc(100vw - 100px);
-//   svg {
-//     transform: scale(1.8);
-//   }
-// }
+.arrow {
+  height: 100px;
+  width: 100px;
+  padding: 1rem;
+  cursor: pointer;
+  margin: 1rem;
 
-// .arrow-left {
-//   left: 0;
-//   svg {
-//     transform: rotate(180deg) scale(1.8);
-//   }
-// }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.arrow-right {
+  transform: rotate(-90deg);
+}
+
+.arrow-left {
+  transform: rotate(90deg);
+}
 </style>

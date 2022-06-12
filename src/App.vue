@@ -13,14 +13,16 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
 @import './scss/reset';
 @import './scss/utiltities';
 @import './scss/vars';
 
 body {
-  font-family: sans-serif;
+  font-family: alwyn-new-rounded-web, sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
+  background: $clr-main-bg;
 }
 
 .section-heading {

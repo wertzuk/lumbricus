@@ -1,9 +1,11 @@
 <template>
   <div class="event" @click="toggleActive">
-    <div class="event__date">{{ date }}</div>
-    <h2 class="event__title">
-      {{ title }}
-    </h2>
+    <div class="event__header">
+      <div class="event__date">{{ date }}</div>
+      <h2 class="event__title">
+        {{ title }}
+      </h2>
+    </div>
     <div class="event__detail" v-if="active" v-html="detailHTML"></div>
 
     <img src="../assets/icons/icon_down.png" alt="" :class="{ flip: active }" />

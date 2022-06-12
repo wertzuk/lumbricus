@@ -1,43 +1,88 @@
 <template>
-  <nav class="nav">
+  <nav class="nav flex justify-between align-center">
     <ul class="flex justify-between nav__list">
-      <router-link to="/">Home</router-link>
-      <router-link to="/vortragsveranstaltungen"
-        >Vortragsveranstaltungen</router-link
-      >
-      <router-link to="/erlebniskurse">Erlebniskurse</router-link>
-      <router-link to="/wanderungen">Wanderungen</router-link>
-      <router-link to="/geburtstage">Waldgeburtstage</router-link>
+      <li><router-link to="/">Home</router-link></li>
+      <!-- <li><router-link to="/">Aktuelles</router-link></li> -->
+      <li @click="listActive = !listActive">
+        <router-link to="/">Programm</router-link>
+        <img src="../assets/icons/icon-arrow.svg" alt="" class="icon-down" />
+        <ul class="program" :class="{ hidden: !listActive }">
+          <li>
+            <router-link to="/vortragsveranstaltungen"
+              >Vortragsveranstaltungen</router-link
+            >
+          </li>
+          <li><router-link to="/erlebniskurse">Erlebniskurse</router-link></li>
+          <li><router-link to="/wanderungen">Wanderungen</router-link></li>
+          <li><router-link to="/geburtstage">Waldgeburtstage</router-link></li>
+        </ul>
+      </li>
+      <li><router-link to="/">Über uns</router-link></li>
+      <li><router-link to="/">Kontakt</router-link></li>
     </ul>
+    <input type="text" class="search" placeholder="Suche..." />
   </nav>
 </template>
 
 <script>
-export default {};
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const listActive = ref(false);
+
+    return {
+      listActive,
+    };
+  },
+};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../scss/utiltities';
 @import '../scss/vars';
 
 .nav {
-  width: 80%;
-  background: $main-clr-bg;
-  border-radius: 35px;
-  padding-inline: 10%;
-  margin: 1rem auto 0;
+  width: 100%;
+  margin-right: 2rem;
   &__list {
+    gap: 4rem;
     list-style: none;
-    width: 100%;
+    height: 100%;
+
+    & > li {
+      position: relative;
+      padding: $padding-header;
+    }
   }
+
   a {
-    // padding: 1rem 2rem;
-    color: white;
-    padding: 1rem 2rem;
-    // background: red;
+    color: $clr-text-400;
+    text-transform: uppercase;
+    font-size: $fs-500;
     &:hover {
       opacity: 0.7;
     }
   }
+
+  .icon-down {
+    margin-left: 1rem;
+    transform: rotate(90deg);
+  }
+}
+
+.search {
+  border: 1px solid $clr-text-400;
+  color: $clr-text-400;
+  border-radius: 15px;
+  padding: 0.4em 1em;
+  max-height: 35px;
+  outline: none;
+}
+
+.program {
+  position: absolute;
+  background: red;
+  top: 100%;
 }
 </style>

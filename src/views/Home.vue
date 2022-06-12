@@ -19,42 +19,43 @@
     </div>
   </section>
 
-  <section class="events">
-    <Events />
+  <section class="events" v-if="posts">
+    <h1 class="section-heading">Aktuelle Veranstaltungen</h1>
+    <ul>
+      <li v-for="post in posts" :key="post.id">
+        <Event
+          :title="post.title"
+          :date="post.date"
+          :detailHTML="post.content"
+        />
+      </li>
+    </ul>
   </section>
 
   <section class="carousel">
     <Carousel />
   </section>
-
-  <section class="program">
-    <h1 class="section-heading">Unser Programm auf einen Blick</h1>
-    <!-- TODO Embed in spereate C  -->
-    <ul>
-      <li class="program__item">Wildkräuterwanderung (mit Verkostung)</li>
-      <li class="program__item">Kräuterseminare</li>
-      <li class="program__item">Erlebniskurse</li>
-      <li class="program__item">Vortragsveranstalungen</li>
-      <li class="program__item">Walderlebnistage</li>
-      <li class="program__item">Waldgeburtstage</li>
-      <li class="program__item">Ferienprogramm/Nachmittagsbeteuung</li>
-      <li class="program__item">
-        umweltbezogene Unterrichtsbegleitung (für alle Schulformen und
-        Klassenstufen)
-      </li>
-      <li class="program__item">naturbezogene Kinder-Workshops</li>
-      <li class="program__item">Lesungen zu allen Anlässen</li>
-    </ul>
-  </section>
 </template>
 
 <script>
-import Events from '@/components/Events.vue';
+import Event from '@/components/Event.vue';
+import { computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 import Carousel from '../components/Carousel.vue';
 
 export default {
   name: 'Home',
-  components: { Carousel, Events },
+  components: { Carousel, Event },
+  setup() {
+    const store = useStore();
+    onMounted(() => {
+      store.dispatch('getPosts');
+    });
+
+    return {
+      posts: computed(() => store.state.posts),
+    };
+  },
 };
 </script>
 
@@ -110,22 +111,8 @@ export default {
   margin-block: 8rem;
 }
 
-.events,
-.program {
+.events {
   margin: 10rem 10%;
-}
-
-.program {
-  margin-inline: 10%;
-}
-.program,
-.program__item {
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  font-size: 1.5rem;
-}
-
-.program__item {
-  padding: 1em;
 }
 
 // .program,

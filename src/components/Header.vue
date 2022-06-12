@@ -1,8 +1,7 @@
 <template>
-  <header class="header">
-    <div class="header__top">
-      <h1>Lumbricus</h1>
-    </div>
+  <header class="header flex align-center">
+    <router-link to="/" class="header__logo">Lumbricus</router-link>
+
     <Navigation />
   </header>
 </template>
@@ -19,16 +18,18 @@ export default {
 
 <style lang="scss">
 @import '../scss/utiltities';
+@import '../scss/vars';
 
 .header {
   position: relative;
-  &__top {
-    padding: 1rem 3rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  }
-  h1 {
+
+  &__logo {
     font-weight: 400;
-    font-size: 2rem;
+    font-size: $fs-800;
+    padding: $padding-header;
+    color: black;
+    margin-right: 5%;
   }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 </style>
