@@ -2,7 +2,7 @@
   <section class="welcome flex">
     <div class="logo"><img src="" alt="LOGO" /></div>
     <div class="welcome__content">
-      <div class="section-heading">
+      <div>
         <h1 class="main-heading">Herzlich Willkommen!</h1>
         <p>Guido Guisens Umwelt Endutainment</p>
       </div>
@@ -79,16 +79,19 @@ export default {
 
   .section-heading {
     margin-bottom: 3rem;
-    h1 {
-      font-size: 5rem;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
+    font-size: $fs-900;
+    letter-spacing: 1px;
+    color: $clr-text-400;
     p {
       font-size: 2rem;
       font-weight: 400;
     }
   }
+}
+
+.main-heading {
+  font-size: $fs-heading;
+  font-weight: 500;
 }
 
 .main-text {
