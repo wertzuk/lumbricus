@@ -22,6 +22,7 @@ export default {
 
 .header {
   position: relative;
+  padding-inline: 3rem;
 
   &__logo {
     font-weight: 400;
@@ -30,6 +31,6 @@ export default {
     color: black;
     margin-right: 5%;
   }
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: $border-nav;
 }
 </style>

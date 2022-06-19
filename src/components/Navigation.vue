@@ -2,7 +2,6 @@
   <nav class="nav flex justify-between align-center">
     <ul class="flex justify-between nav__list">
       <li><router-link to="/">Home</router-link></li>
-      <!-- <li><router-link to="/">Aktuelles</router-link></li> -->
       <li @click="listActive = !listActive">
         <router-link to="/">Programm</router-link>
         <img src="../assets/icons/icon-arrow.svg" alt="" class="icon-down" />
@@ -14,13 +13,20 @@
           </li>
           <li><router-link to="/erlebniskurse">Erlebniskurse</router-link></li>
           <li><router-link to="/wanderungen">Wanderungen</router-link></li>
-          <li><router-link to="/geburtstage">Waldgeburtstage</router-link></li>
+          <li>
+            <router-link to="/geburtstage" class="last"
+              >Waldgeburtstage</router-link
+            >
+          </li>
         </ul>
       </li>
       <li><router-link to="/">Über uns</router-link></li>
       <li><router-link to="/">Kontakt</router-link></li>
     </ul>
-    <input type="text" class="search" placeholder="Suche..." />
+    <div>
+      <button>Login</button>
+      <input type="text" class="search" placeholder="Suche..." />
+    </div>
   </nav>
 </template>
 
@@ -44,7 +50,6 @@ export default {
 
 .nav {
   width: 100%;
-  margin-right: 2rem;
   &__list {
     gap: 4rem;
     list-style: none;
@@ -53,6 +58,11 @@ export default {
     & > li {
       position: relative;
       padding: $padding-header;
+      // & > a:hover {
+      //   &::after {
+      //     transform: scale(1);
+      //   }
+      // }
     }
   }
 
@@ -60,8 +70,18 @@ export default {
     color: $clr-text-400;
     text-transform: uppercase;
     font-size: $fs-500;
-    &:hover {
-      opacity: 0.7;
+    position: relative;
+    &::after {
+      content: '';
+      height: 1px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      background: black;
+      transition: transform 0.2s;
+      transform-origin: left;
+      transform: scale(0);
     }
   }
 
@@ -82,14 +102,21 @@ export default {
 
 .program {
   position: absolute;
-  border: 1px solid black;
+  border: $border-nav;
   border-radius: 18px;
-  top: 100%;
+  top: 1rem;
   left: 0;
   right: 0;
+  li:first-child {
+    margin-top: 5rem;
+  }
   li {
-    border-bottom: 1px solid black;
+    border-bottom: $border-nav;
     padding: 1rem;
+
+    &:last-child {
+      border: none;
+    }
   }
   a {
     font-size: $fs-small;
