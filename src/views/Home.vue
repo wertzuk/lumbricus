@@ -1,15 +1,15 @@
 <template>
-  <section class="welcome flex">
-    <div class="logo"><img src="" alt="LOGO" /></div>
+  <section class="welcome flex align-center">
+    <div class="logo"><img src="../assets/icons/logo_1.png" alt="LOGO" /></div>
     <div class="welcome__content">
-      <div>
-        <h1 class="main-heading">Herzlich Willkommen!</h1>
-        <p>Guido Guisens Umwelt Endutainment</p>
+      <div class="main-heading">
+        <h1>Herzlich Willkommen!</h1>
+        <h2>Guido Guisens Umwelt Endutainment</h2>
       </div>
-      <p class="main-text">
+      <!-- <p class="main-text">
         Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
         dazu die Begabung, all das zu genießen! (indianische Weisheit)
-      </p>
+      </p> -->
     </div>
   </section>
 
@@ -63,35 +63,47 @@ export default {
 @import '../scss/vars';
 
 .welcome {
-  height: calc(100vh - 136px);
+  height: calc(100vh - 97px);
   padding: 5rem 3rem;
   overflow-x: hidden;
   .logo {
     flex-basis: 40%;
   }
-  & > p {
-    font-size: 2rem;
+
+  .main-heading {
+    h1 {
+      font-size: $fs-heading;
+      font-weight: 500;
+      color: $clr-text-400;
+    }
+    h2 {
+      font-size: $fs-800;
+      font-weight: 300;
+      color: $clr-text-500;
+    }
   }
+
   &__content {
     text-align: center;
     flex-basis: 60%;
+    margin-bottom: 7rem;
+    color: $clr-text-500;
   }
-
-  .section-heading {
-    margin-bottom: 3rem;
-    font-size: $fs-900;
-    letter-spacing: 1px;
-    color: $clr-text-400;
-    p {
-      font-size: 2rem;
-      font-weight: 400;
-    }
+  p {
+    opacity: 0.7;
+    padding: 3rem;
   }
 }
 
-.main-heading {
-  font-size: $fs-heading;
-  font-weight: 500;
+.section-heading {
+  margin-bottom: 3rem;
+  font-size: $fs-900;
+  letter-spacing: 1px;
+  color: $clr-text-400;
+  p {
+    font-size: 2rem;
+    font-weight: 400;
+  }
 }
 
 .main-text {

@@ -26,7 +26,7 @@ export default {
   &__logo {
     font-weight: 400;
     font-size: $fs-800;
-    padding: $padding-header;
+    // padding: $padding-header;
     color: black;
     margin-right: 5%;
   }

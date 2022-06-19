@@ -82,7 +82,19 @@ export default {
 
 .program {
   position: absolute;
-  background: red;
+  border: 1px solid black;
+  border-radius: 18px;
   top: 100%;
+  left: 0;
+  right: 0;
+  li {
+    border-bottom: 1px solid black;
+    padding: 1rem;
+  }
+  a {
+    font-size: $fs-small;
+    text-transform: none;
+    padding-bottom: 0.5rem;
+  }
 }
 </style>
