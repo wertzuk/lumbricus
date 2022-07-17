@@ -30,6 +30,7 @@ export default {
     // padding: $padding-header;
     color: black;
     margin-right: 5%;
+    font-family: 'Alwyn New', sans-serif;
   }
   border-bottom: $border-nav;
 }

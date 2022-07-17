@@ -73,8 +73,9 @@ export default {
   .main-heading {
     h1 {
       font-size: $fs-heading;
-      font-weight: 500;
+      font-weight: 300;
       color: $clr-text-400;
+      font-family: 'Alwyn New', sans-serif;
     }
     h2 {
       font-size: $fs-800;
@@ -96,6 +97,7 @@ export default {
 }
 
 .section-heading {
+  font-family: 'Alwyn New', sans-serif;
   margin-bottom: 3rem;
   font-size: $fs-900;
   letter-spacing: 1px;

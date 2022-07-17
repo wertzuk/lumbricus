@@ -3,7 +3,7 @@
     <ul class="flex justify-between nav__list">
       <li><router-link to="/">Home</router-link></li>
       <li @click="listActive = !listActive">
-        <router-link to="/">Programm</router-link>
+        <span to="/">Programm</span>
         <img src="../assets/icons/icon-arrow.svg" alt="" class="icon-down" />
         <ul class="program" :class="{ hidden: !listActive }">
           <li>
@@ -24,8 +24,8 @@
       <li><router-link to="/">Kontakt</router-link></li>
     </ul>
     <div>
-      <button>Login</button>
-      <input type="text" class="search" placeholder="Suche..." />
+      <!-- <button class="btn btn-login rounded-1">Login</button> -->
+      <input type="text" class="search rounded-1" placeholder="Suche..." />
     </div>
   </nav>
 </template>
@@ -66,11 +66,13 @@ export default {
     }
   }
 
-  a {
+  a,
+  span {
     color: $clr-text-400;
     text-transform: uppercase;
-    font-size: $fs-500;
+    font-size: $fs-450;
     position: relative;
+    cursor: pointer;
     &::after {
       content: '';
       height: 1px;
@@ -89,15 +91,6 @@ export default {
     margin-left: 1rem;
     transform: rotate(90deg);
   }
-}
-
-.search {
-  border: 1px solid $clr-text-400;
-  color: $clr-text-400;
-  border-radius: 15px;
-  padding: 0.4em 1em;
-  max-height: 35px;
-  outline: none;
 }
 
 .program {
@@ -123,5 +116,22 @@ export default {
     text-transform: none;
     padding-bottom: 0.5rem;
   }
+}
+
+.search,
+.btn-login {
+  padding: 0.4em 1em;
+  max-height: 35px;
+  outline: none;
+  min-width: 10rem;
+}
+
+.btn-login {
+  background: $clr-text-400;
+  color: white;
+}
+.search {
+  color: $clr-text-400;
+  border: 1px solid $clr-text-400;
 }
 </style>
