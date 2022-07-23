@@ -7,7 +7,7 @@
       <div class="flex g-2">
         <div class="event__date">{{ germanDate }}</div>
         <img
-          src="../assets/icons/icon_down.png"
+          src="../assets/icons/icon-next.svg"
           alt=""
           :class="{ flip: active }"
         />
@@ -57,13 +57,13 @@ export default {
   cursor: pointer;
 
   &__title {
-    font-size: $fs-800;
+    font-size: $fs-600;
     font-weight: normal;
     margin-top: 1rem;
   }
 
   &__date {
-    font-size: $fs-500;
+    font-size: $fs-400;
   }
 
   &__title,

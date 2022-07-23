@@ -23,10 +23,9 @@
       <li><router-link to="/">Über uns</router-link></li>
       <li><router-link to="/">Kontakt</router-link></li>
     </ul>
-    <div>
-      <!-- <button class="btn btn-login rounded-1">Login</button> -->
+    <!-- <div>
       <input type="text" class="search rounded-1" placeholder="Suche..." />
-    </div>
+    </div> -->
   </nav>
 </template>
 

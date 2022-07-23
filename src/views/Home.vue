@@ -6,10 +6,11 @@
         <h1>Herzlich Willkommen!</h1>
         <h2>Guido Guisens Umwelt Endutainment</h2>
       </div>
-      <!-- <p class="main-text">
+      <p class="main-text">
         Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
         dazu die Begabung, all das zu genießen! (indianische Weisheit)
-      </p> -->
+      </p>
+      <Button title="Nächste Veranstaltungen" />
     </div>
   </section>
 
@@ -19,7 +20,7 @@
     </div>
   </section>
 
-  <section class="events" v-if="posts">
+  <section class="events">
     <h1 class="section-heading">Aktuelle Veranstaltungen</h1>
     <ul>
       <li v-for="post in posts" :key="post.id">
@@ -39,21 +40,34 @@
 
 <script>
 import Event from '@/components/Event.vue';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
 import Carousel from '../components/Carousel.vue';
+import Button from '../components/Button.vue';
 
 export default {
   name: 'Home',
-  components: { Carousel, Event },
+  components: { Carousel, Event, Button },
   setup() {
     const store = useStore();
+    const events = ref(null);
+
+    function scrollToElement() {
+      console.log(events.value);
+      if (events.value) {
+        // Use el.scrollIntoView() to instantly scroll to the element
+        events.value.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
     onMounted(() => {
       store.dispatch('getPosts');
+      console.log(events.value);
     });
 
     return {
       posts: computed(() => store.state.posts),
+      scrollToElement,
     };
   },
 };

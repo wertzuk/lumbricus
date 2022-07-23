@@ -12,10 +12,10 @@
   </div>
   <div class="arrows flex justify-between">
     <div class="arrow arrow-left" @click="showPrevImages">
-      <img src="../assets/icons/icon_down.png" alt="" />
+      <img src="../assets/icons/icon-next.svg" alt="" />
     </div>
     <div class="arrow arrow-right" @click="showNextImages">
-      <img src="../assets/icons/icon_down.png" alt="" />
+      <img src="../assets/icons/icon-next.svg" alt="" />
     </div>
   </div>
 </template>
