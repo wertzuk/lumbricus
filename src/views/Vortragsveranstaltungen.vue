@@ -3,11 +3,11 @@
     <section class="event-cards">
       <h2 class="view-heading heading">Vortragsveranstaltungen</h2>
       <div class="cards flex">
-        <Card class="card" />
-        <Card class="card" />
-        <Card class="card" />
-        <Card class="card" />
-        <Card class="card" />
+        <Card class="card-item" />
+        <Card class="card-item" />
+        <Card class="card-item" />
+        <Card class="card-item" />
+        <Card class="card-item" />
       </div>
     </section>
     <section class="event-description">
@@ -72,14 +72,16 @@ export default {
   .cards {
     margin-top: 3rem;
     flex-direction: column;
-    .card {
+    & > *:not(:first-child) {
+      margin-top: calc(5rem * -1);
+    }
+    .card-item {
       z-index: 1;
     }
-    .card:nth-child(2n) {
+    .card-item:nth-child(2n) {
       background: $clr-card-bg;
     }
-    .card:not(:first-child) {
-      margin-top: calc(6rem * -1);
+    .card-item:not(:first-child) {
     }
   }
 
