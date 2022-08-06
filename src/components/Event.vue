@@ -60,15 +60,16 @@ export default {
 .event {
   padding: 1em;
   // border-top: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  background: $clr-event-bg;
   cursor: pointer;
 
   &__title {
     font-size: $fs-600;
     font-weight: normal;
-    margin-top: 1rem;
+    // margin-top: 1rem;
   }
 
   &__date {

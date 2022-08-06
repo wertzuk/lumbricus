@@ -99,9 +99,11 @@ export default {
   top: 1rem;
   left: 0;
   right: 0;
+
+  z-index: 100;
   overflow: hidden;
   li:first-child {
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
   li {
     border-bottom: $border-nav;
