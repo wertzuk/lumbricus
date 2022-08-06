@@ -99,21 +99,24 @@ export default {
   top: 1rem;
   left: 0;
   right: 0;
+  overflow: hidden;
   li:first-child {
     margin-top: 5rem;
   }
   li {
     border-bottom: $border-nav;
-    padding: 1rem;
+    background: $clr-main-bg;
 
     &:last-child {
       border: none;
     }
   }
   a {
+    padding: 1rem;
+    display: block;
     font-size: $fs-small;
     text-transform: none;
-    padding-bottom: 0.5rem;
+    // padding-bottom: 0.5rem;
   }
 }
 

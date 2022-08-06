@@ -26,7 +26,8 @@
       <li v-for="post in posts" :key="post.id">
         <Event
           :title="post.title"
-          :date="post.date"
+          :startDate="post.dateStart"
+          :endDate="post.dateEnd"
           :detailHTML="post.content"
         />
       </li>
@@ -55,7 +56,6 @@ export default {
     function scrollToElement() {
       console.log(events.value);
       if (events.value) {
-        // Use el.scrollIntoView() to instantly scroll to the element
         events.value.scrollIntoView({ behavior: 'smooth' });
       }
     }
@@ -77,9 +77,9 @@ export default {
 @import '../scss/vars';
 
 .welcome {
-  height: calc(100vh - 97px);
+  height: calc(100vh - 91.2px);
   padding: 5rem 3rem;
-  overflow-x: hidden;
+  overflow: hidden;
   .logo {
     flex-basis: 40%;
   }
