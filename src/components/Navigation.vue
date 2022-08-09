@@ -95,7 +95,7 @@ export default {
 .program {
   position: absolute;
   border: $border-nav;
-  border-radius: 18px;
+  // border-radius: 18px;
   top: 1rem;
   left: 0;
   right: 0;

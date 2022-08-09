@@ -12,13 +12,59 @@
         Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
         dazu die Begabung, all das zu genießen! (indianische Weisheit)
       </p>
+
       <Button title="Nächste Veranstaltungen" />
     </div>
-    <div class="right-img">
-      <img src="../assets/food-1.jpg" alt="" />
-    </div>
   </section>
+  <div class="right-img"></div>
 
+  <div class="list">
+    <h1>Unser Programmangebot in der Übersicht:</h1>
+    <div class="program-grid">
+      <div>
+        <span>Wildkräuterwanderungen (mit Verkostung)</span
+        ><img src="../assets/wk.jpg" alt="" />
+      </div>
+      <div>
+        <span>Kräuterseminare</span><img src="../assets/seminare.jpg" alt="" />
+      </div>
+      <div>
+        <span>Erlebniskurse</span><img src="../assets/erlebnis.jpg" alt="" />
+      </div>
+      <div>
+        <span>Vortragsveranstaltungen</span
+        ><img src="../assets/lesung3.jpg" alt="" />
+      </div>
+      <div>
+        <span>Walderlebnistage</span
+        ><img src="../assets/erlebnis2.jpg" alt="" />
+      </div>
+      <div>
+        <span>Waldgeburtstage (für groß und klein)</span
+        ><img src="../assets/waldgeb.jpg" alt="" />
+      </div>
+      <div>
+        <span>Ferienprogramme/Nachmittagsbetreuung</span
+        ><img src="../assets/ferien.jpg" alt="" />
+      </div>
+      <div>
+        <span>Märchenwanderungen</span
+        ><img src="../assets/wanderung.jpg" alt="" />
+      </div>
+      <div>
+        <span> umweltbezogene Unterrichtsbegleitung </span
+        ><img src="../assets/betreuung.jpg" alt="" />
+      </div>
+      <div>
+        <span>naturbezogene Kinder-Workshops</span
+        ><img src="../assets/lesung.jpg" alt="" />
+      </div>
+      <div>
+        <span>Lesungen zu allen Anlässen</span
+        ><img src="../assets/lesung2.jpg" alt="" />
+      </div>
+    </div>
+  </div>
   <section class="events">
     <div class="events__heading flex g-2 align-center">
       <h1 class="section-heading">Aktuelle Veranstaltungen</h1>
@@ -42,9 +88,9 @@
       </li>
     </ul>
   </section>
-  <section>
+  <!-- <section>
     <div class="big-img"></div>
-  </section>
+  </section> -->
 
   <section class="carousel">
     <Carousel />
@@ -89,12 +135,14 @@ export default {
 
 .welcome {
   height: calc(100vh - 91.2px);
+  // height: 100vh;
   // padding: 5rem 3rem;
   overflow: hidden;
   .logo {
-    clip-path: circle(65.7% at 32% 25%);
-    flex-basis: 40%;
+    clip-path: circle(65.7% at 24% 25%);
+    flex-basis: 35%;
     height: 100%;
+    // min-width: 700px;
     background-image: url(../assets/big-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -125,20 +173,23 @@ export default {
     opacity: 0.7;
     padding: 3rem;
   }
-
-  .right-img {
-    position: absolute;
-    bottom: -300px;
-    right: 0;
-    width: 500px;
-    height: 500px;
-    // aspect-ratio: 4/3;
-    clip-path: circle(40.8% at 100% 49%);
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+  .list {
+    text-align: left;
+    margin-left: 6rem;
+  }
+}
+.right-img {
+  width: 100vw;
+  height: 50vh;
+  background-attachment: fixed;
+  background-image: url(../assets/DSCN6253.jpg);
+  background-size: cover;
+  // aspect-ratio: 4/3;
+  // clip-path: circle(40.8% at 100% 49%);
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
 
@@ -158,17 +209,51 @@ export default {
   font-size: 1.2rem;
 }
 
-.big-img {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  border-radius: 60px 60px 0 0;
-  background-image: url(../assets/big-img.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right;
-  background-attachment: fixed;
-  margin-bottom: 5rem;
+// .big-img {
+//   height: 100vh;
+//   width: 100vw;
+//   overflow: hidden;
+//   border-radius: 60px 60px 0 0;
+//   background-image: url(../assets/big-img.jpg);
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: right;
+//   background-attachment: fixed;
+//   margin-bottom: 5rem;
+// }
+
+.list {
+  margin: 10rem 10%;
+}
+
+.program-grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  & > div {
+    // height: 300px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+    span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1rem 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      color: white;
+      background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+      display: block;
+    }
+    img {
+      object-fit: cover;
+      border-radius: none;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .corousel {
