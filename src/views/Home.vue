@@ -13,13 +13,16 @@
         dazu die Begabung, all das zu genießen! (indianische Weisheit)
       </p>
 
-      <Button title="Nächste Veranstaltungen" />
+      <div class="flex g-2 justify-center">
+        <Button title="Unser Angebot" @click="scrollToElement" />
+        <Button title="Nächste Veranstaltungen" @click="scrollToElement" />
+      </div>
     </div>
   </section>
   <div class="right-img"></div>
 
   <div class="list">
-    <h1>Unser Programmangebot in der Übersicht:</h1>
+    <h1 class="section-heading">Unser Programmangebot in der Übersicht:</h1>
     <div class="program-grid">
       <div>
         <span>Wildkräuterwanderungen (mit Verkostung)</span
@@ -67,7 +70,7 @@
   </div>
   <section class="events">
     <div class="events__heading flex g-2 align-center">
-      <h1 class="section-heading">Aktuelle Veranstaltungen</h1>
+      <h1 class="section-heading" ref="test">Aktuelle Veranstaltungen</h1>
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
@@ -99,32 +102,34 @@
 
 <script>
 import Event from '@/components/Event.vue';
-import { computed, onMounted, ref } from 'vue';
 import { useStore } from 'vuex';
-import Carousel from '../components/Carousel.vue';
+import { computed, onMounted, ref } from 'vue';
 import Button from '../components/Button.vue';
+import Carousel from '../components/Carousel.vue';
 
 export default {
   name: 'Home',
   components: { Carousel, Event, Button },
   setup() {
     const store = useStore();
-    const events = ref(null);
+    const test = ref(null);
 
     function scrollToElement() {
-      console.log(events.value);
-      if (events.value) {
-        events.value.scrollIntoView({ behavior: 'smooth' });
+      console.log(test.value);
+      if (test.value) {
+        test.value.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
     onMounted(() => {
+      console.log(test.value);
       store.dispatch('getPosts');
     });
 
     return {
       posts: computed(() => store.state.posts),
       scrollToElement,
+      test,
     };
   },
 };
@@ -139,7 +144,7 @@ export default {
   // padding: 5rem 3rem;
   overflow: hidden;
   .logo {
-    clip-path: circle(65.7% at 24% 25%);
+    clip-path: circle(60.7% at 19% 28%);
     flex-basis: 35%;
     height: 100%;
     // min-width: 700px;
@@ -209,19 +214,6 @@ export default {
   font-size: 1.2rem;
 }
 
-// .big-img {
-//   height: 100vh;
-//   width: 100vw;
-//   overflow: hidden;
-//   border-radius: 60px 60px 0 0;
-//   background-image: url(../assets/big-img.jpg);
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: right;
-//   background-attachment: fixed;
-//   margin-bottom: 5rem;
-// }
-
 .list {
   margin: 10rem 10%;
 }
@@ -230,6 +222,7 @@ export default {
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+
   & > div {
     // height: 300px;
     aspect-ratio: 16/9;
@@ -277,6 +270,14 @@ export default {
     transition: all 0.2s;
     &:hover {
       background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+@media only screen and(min-width: 1800px) {
+  .welcome {
+    .logo {
+      clip-path: circle(62.7% at 25% 27%);
     }
   }
 }
