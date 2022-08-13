@@ -5,15 +5,24 @@ export default createStore({
     posts: [],
   },
   mutations: {},
+  getters: {
+    filterByMonths: (state) => (month) => {
+      console.log(month);
+      return state.posts.filter((post) => {
+        const comp = new Date(post.dateStart);
+        return comp.getMonth() === month;
+      });
+    },
+  },
   actions: {
     async getPosts() {
       const BASE_URL = 'http://localhost/lumbricus/server/api';
 
       const response = await fetch(`${BASE_URL}/posts.php`);
       const { data } = await response.json();
-      // console.log(data);
       this.state.posts = data;
     },
   },
+
   modules: {},
 });

@@ -14,7 +14,7 @@
       </p>
 
       <div class="flex g-2 justify-center">
-        <Button title="Unser Angebot" @click="scrollToElement" />
+        <Button title="Unser Angebot" @click="scrollToOffering" />
         <Button title="Nächste Veranstaltungen" @click="scrollToElement" />
       </div>
     </div>
@@ -22,7 +22,9 @@
   <div class="right-img"></div>
 
   <div class="list">
-    <h1 class="section-heading">Unser Programmangebot in der Übersicht:</h1>
+    <h1 class="section-heading" ref="offering">
+      Unser Programmangebot in der Übersicht:
+    </h1>
     <div class="program-grid">
       <div>
         <span>Wildkräuterwanderungen (mit Verkostung)</span
@@ -42,10 +44,11 @@
         <span>Walderlebnistage</span
         ><img src="../assets/erlebnis2.jpg" alt="" />
       </div>
-      <div>
+      <!-- <div>
         <span>Waldgeburtstage (für groß und klein)</span
         ><img src="../assets/waldgeb.jpg" alt="" />
       </div>
+        -->
       <div>
         <span>Ferienprogramme/Nachmittagsbetreuung</span
         ><img src="../assets/ferien.jpg" alt="" />
@@ -58,10 +61,10 @@
         <span> umweltbezogene Unterrichtsbegleitung </span
         ><img src="../assets/betreuung.jpg" alt="" />
       </div>
-      <div>
+      <!-- <div>
         <span>naturbezogene Kinder-Workshops</span
         ><img src="../assets/lesung.jpg" alt="" />
-      </div>
+      </div> -->
       <div>
         <span>Lesungen zu allen Anlässen</span
         ><img src="../assets/lesung2.jpg" alt="" />
@@ -70,18 +73,19 @@
   </div>
   <section class="events">
     <div class="events__heading flex g-2 align-center">
-      <h1 class="section-heading" ref="test">Aktuelle Veranstaltungen</h1>
+      <h1 class="section-heading" ref="events">Aktuelle Veranstaltungen</h1>
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
-      <button class="btn btn-month">August</button>
-      <button class="btn btn-month">September</button>
+      <button class="btn btn-month" @click="setFilter(6)">Juni</button>
+      <button class="btn btn-month" @click="setFilter(7)">August</button>
+      <button class="btn btn-month" @click="setFilter(8)">September</button>
       <button class="btn btn-month">Oktober</button>
       <button class="btn btn-month">November</button>
       <button class="btn btn-month">Dezember</button>
     </div>
     <ul>
-      <li v-for="post in posts" :key="post.id">
+      <li v-for="post in filterByDays" :key="post.id">
         <Event
           :title="post.title"
           :startDate="post.dateStart"
@@ -89,6 +93,9 @@
           :detailHTML="post.content"
         />
       </li>
+      <span v-if="filterByDays.length === 0"
+        >Keine Veranstaltungen in diesem Monat!</span
+      >
     </ul>
   </section>
   <!-- <section>
@@ -112,24 +119,44 @@ export default {
   components: { Carousel, Event, Button },
   setup() {
     const store = useStore();
-    const test = ref(null);
+    const offering = ref(null);
+    const events = ref(null);
+
+    const currentFilter = ref(null);
 
     function scrollToElement() {
-      console.log(test.value);
-      if (test.value) {
-        test.value.scrollIntoView({ behavior: 'smooth' });
+      if (events.value) {
+        events.value.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
+    function scrollToOffering() {
+      if (offering.value) {
+        offering.value.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    function setFilter(month) {
+      currentFilter.value = month;
+    }
+
+    const filterByDays = computed(() => {
+      console.log(currentFilter);
+      if (currentFilter.value === null) return store.state.posts;
+      return store.getters.filterByMonths(currentFilter.value);
+    });
+
     onMounted(() => {
-      console.log(test.value);
       store.dispatch('getPosts');
     });
 
     return {
       posts: computed(() => store.state.posts),
+      filterByDays,
+      setFilter,
       scrollToElement,
-      test,
+      scrollToOffering,
+      offering,
+      events,
     };
   },
 };
@@ -140,14 +167,11 @@ export default {
 
 .welcome {
   height: calc(100vh - 91.2px);
-  // height: 100vh;
-  // padding: 5rem 3rem;
   overflow: hidden;
   .logo {
     clip-path: circle(60.7% at 19% 28%);
     flex-basis: 35%;
     height: 100%;
-    // min-width: 700px;
     background-image: url(../assets/big-img.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -222,6 +246,8 @@ export default {
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  border-radius: 50px;
+  overflow: hidden;
 
   & > div {
     // height: 300px;
@@ -268,9 +294,13 @@ export default {
     padding: 0.4em 1em;
     border-radius: 5px;
     transition: all 0.2s;
-    &:hover {
+    &:hover,
+    &:focus {
       background: rgba(0, 0, 0, 0.2);
     }
+  }
+  .btn-month.active {
+    background: rgba(0, 0, 0, 0.3);
   }
 }
 
