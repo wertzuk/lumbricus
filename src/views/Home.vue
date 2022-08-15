@@ -72,9 +72,11 @@
     </div>
   </div>
   <section class="events">
-    <div class="events__heading flex g-2 align-center">
+    <div class="events__heading flex justify-between align-center">
       <h1 class="section-heading" ref="events">Aktuelle Veranstaltungen</h1>
-      <router-link to="/event">Neue Veranstaltung</router-link>
+      <router-link to="/event" class="new-event"
+        >Neue Veranstaltung erstellen</router-link
+      >
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
@@ -225,7 +227,6 @@ export default {
 
 .section-heading {
   font-family: 'Alwyn New', sans-serif;
-  // margin-bottom: 3rem;
   font-size: $fs-900;
   letter-spacing: 1px;
   color: $clr-text-400;
@@ -241,6 +242,16 @@ export default {
 
 .list {
   margin: 10rem 10%;
+}
+
+.new-event {
+  padding: 0.4em 1em;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: $clr-text-400;
+  transition: all 0.2s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
 }
 
 .program-grid {

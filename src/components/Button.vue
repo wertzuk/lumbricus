@@ -27,7 +27,4 @@ export default {
     background: rgb(213, 245, 213);
   }
 }
-
-.btn-big {
-}
 </style>

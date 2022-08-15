@@ -23,8 +23,10 @@
       v-model:content="content"
       @ready="(quill) => start(quill)"
     />
-    <button class="btn" @click="submit">Veranstaltung erstellen</button>
+    <button class="btn" @click.prevent="submit">Veranstaltung erstellen</button>
   </form>
+  <div class="dialog1" v-if="success">Erfolgreich erstellt</div>
+  <!-- <Popup title="blabal" isSuccess /> -->
 </template>
 
 <script>
@@ -32,6 +34,7 @@ import { useStore } from 'vuex';
 import { QuillEditor } from '@vueup/vue-quill';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { ref } from 'vue';
+// import Popup from '@/components/Popup.vue';
 
 export default {
   components: {
@@ -43,6 +46,9 @@ export default {
     const dateStart = ref('');
     const dateEnd = ref('');
     const title = ref('');
+    const success = ref(false);
+
+    const dialog = ref(null);
 
     const store = useStore();
     let quillEditor = null;
@@ -53,7 +59,8 @@ export default {
     }
 
     async function submit() {
-      console.log(content.value);
+      console.log(dialog.value);
+
       const post = {
         title: title.value,
         dateStart: dateStart.value,
@@ -67,7 +74,13 @@ export default {
           body: JSON.stringify(post),
         },
       );
-      if (response.ok) console.log('data got send');
+      if (response.ok) {
+        console.log('data got send');
+        success.value = true;
+        setTimeout(() => {
+          success.value = false;
+        }, 3000);
+      }
 
       store.state.posts.push(post);
       title.value = '';
@@ -84,6 +97,8 @@ export default {
       title,
       dateStart,
       dateEnd,
+      dialog,
+      success,
     };
   },
 };
@@ -91,6 +106,15 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/vars';
+
+.dailog1 {
+  // position: absolute;
+  // top: 50%;
+  // left: 50%;
+  padding: 1.5rem;
+  border: none;
+  background: red;
+}
 
 h1 {
   text-align: center;
