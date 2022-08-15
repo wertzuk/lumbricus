@@ -20,7 +20,7 @@
           </li>
         </ul>
       </li>
-      <li><router-link to="/">Über uns</router-link></li>
+      <li><router-link to="/about">Über uns</router-link></li>
       <li><router-link to="/">Kontakt</router-link></li>
     </ul>
     <!-- <div>

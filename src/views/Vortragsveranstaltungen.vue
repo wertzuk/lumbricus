@@ -94,7 +94,7 @@ export default {
   }
   .event-description {
     flex-basis: 70%;
-    margin-top: 4em;
+    margin-top: 8em;
 
     p {
       font-size: $fs-400;
