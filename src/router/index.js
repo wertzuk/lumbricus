@@ -4,6 +4,7 @@ import Vortragsveranstaltungen from '../views/Vortragsveranstaltungen.vue';
 import Erlebniskurse from '../views/Erlebniskurse.vue';
 import Wanderungen from '../views/Wanderungen.vue';
 import Geburtstage from '../views/Waldgeburtstage.vue';
+import NewEvent from '../views/NewEvent.vue';
 
 const routes = [
   {
@@ -31,14 +32,11 @@ const routes = [
     name: 'Geburtstage',
     component: Geburtstage,
   },
-  // {
-  //   path: '/vortragsveranstaltungen',
-  //   name: 'vortragsveranstaltungen',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import('../views/Vortragsveranstaltungen.vue'),
-  // },
+  {
+    path: '/event',
+    name: 'NewEvent',
+    component: NewEvent,
+  },
 ];
 
 const router = createRouter({

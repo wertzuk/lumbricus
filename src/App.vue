@@ -32,10 +32,18 @@ body {
   background: $clr-main-bg;
 }
 
+// .section-heading {
+//   font-size: 4rem;
+//   font-weight: 400;
+//   margin: 1rem 0 2rem;
+// }
+
 .section-heading {
-  font-size: 4rem;
+  font-family: 'Alwyn New', sans-serif;
+  font-size: $fs-900;
+  letter-spacing: 1px;
+  color: $clr-text-400;
   font-weight: 400;
-  margin: 1rem 0 2rem;
 }
 
 .hidden {

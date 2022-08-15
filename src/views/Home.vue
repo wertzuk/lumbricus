@@ -74,10 +74,11 @@
   <section class="events">
     <div class="events__heading flex g-2 align-center">
       <h1 class="section-heading" ref="events">Aktuelle Veranstaltungen</h1>
+      <router-link to="/event">Neue Veranstaltung</router-link>
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
-      <button class="btn btn-month" @click="setFilter(6)">Juni</button>
+      <button class="btn btn-month" @click="setFilter(6)">Juli</button>
       <button class="btn btn-month" @click="setFilter(7)">August</button>
       <button class="btn btn-month" @click="setFilter(8)">September</button>
       <button class="btn btn-month">Oktober</button>
