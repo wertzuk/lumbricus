@@ -181,20 +181,6 @@ export default {
     background-position: right;
   }
 
-  .main-heading {
-    h1 {
-      font-size: $fs-heading;
-      font-weight: 300;
-      color: $clr-text-400;
-      font-family: 'Alwyn New', sans-serif;
-    }
-    h2 {
-      font-size: $fs-800;
-      font-weight: 300;
-      color: $clr-text-500;
-    }
-  }
-
   &__content {
     text-align: center;
     flex-basis: 60%;

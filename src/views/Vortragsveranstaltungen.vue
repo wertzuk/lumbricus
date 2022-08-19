@@ -55,6 +55,9 @@
 import Card from '@/components/Card.vue';
 
 export default {
+  props: {
+    title: String,
+  },
   components: {
     Card,
   },

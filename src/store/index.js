@@ -16,7 +16,7 @@ export default createStore({
   },
   actions: {
     async getPosts() {
-      const BASE_URL = 'http://localhost/lumbricus/server/api';
+      const BASE_URL = 'http://pascal-barzen.de/lumbricus/api';
 
       const response = await fetch(`${BASE_URL}/posts.php`);
       const { data } = await response.json();
