@@ -90,6 +90,7 @@ export default {
 
   .view-heading {
     font-size: $fs-900;
+    font-weight: 300;
   }
   .event-cards {
     flex-basis: 20%;

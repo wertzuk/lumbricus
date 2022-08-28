@@ -105,9 +105,9 @@
     <div class="big-img"></div>
   </section> -->
 
-  <section class="carousel">
+  <!-- <section class="carousel">
     <Carousel />
-  </section>
+  </section> -->
 </template>
 
 <script>
@@ -115,11 +115,11 @@ import Event from '@/components/Event.vue';
 import { useStore } from 'vuex';
 import { computed, onMounted, ref } from 'vue';
 import Button from '../components/Button.vue';
-import Carousel from '../components/Carousel.vue';
+// import Carousel from '../components/Carousel.vue';
 
 export default {
   name: 'Home',
-  components: { Carousel, Event, Button },
+  components: { Event, Button },
   setup() {
     const store = useStore();
     const offering = ref(null);
@@ -216,6 +216,7 @@ export default {
   font-size: $fs-900;
   letter-spacing: 1px;
   color: $clr-text-400;
+  text-align: center;
   p {
     font-size: 2rem;
     font-weight: 400;
