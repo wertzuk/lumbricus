@@ -16,7 +16,7 @@ export default createStore({
   },
   actions: {
     async getPosts() {
-      const BASE_URL = 'http://lumbricus.herokuapp.com/server/api';
+      const BASE_URL = 'https://lumbricus.herokuapp.com/server/api';
 
       // const BASE_URL = 'http://localhost/lumbricus/server/api';
 
