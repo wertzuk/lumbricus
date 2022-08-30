@@ -101,13 +101,6 @@
       >
     </ul>
   </section>
-  <!-- <section>
-    <div class="big-img"></div>
-  </section> -->
-
-  <!-- <section class="carousel">
-    <Carousel />
-  </section> -->
 </template>
 
 <script>
@@ -239,6 +232,10 @@ export default {
   &:hover {
     background: rgba(0, 0, 0, 0.2);
   }
+}
+
+.months {
+  margin-top: 1rem;
 }
 
 .program-grid {

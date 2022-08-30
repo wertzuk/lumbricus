@@ -1,25 +1,28 @@
 <template>
-  <div class="event" @click="toggleActive">
-    <div class="event__header justify-between align-center">
-      <div class="flex justify-between">
-        <h2 class="event__title">
-          {{ title }}
-        </h2>
-        <img
-          src="../assets/icons/icon-next.svg"
-          alt=""
-          :class="{ flip: active }"
-        />
-      </div>
-      <div class="flex">
-        <div class="event__date">{{ gerStartDate }}</div>
-        <div class="event__date" v-if="gerEndDate !== 'Invalid Date'">
-          - {{ gerEndDate }}
+  <transition name="fade">
+    <div class="event" @click="toggleActive">
+      <div class="event__header justify-between align-center">
+        <div class="flex justify-between">
+          <h2 class="event__title">
+            {{ title }}
+          </h2>
+          <img
+            src="../assets/icons/icon-next.svg"
+            alt=""
+            :class="{ flip: active }"
+          />
+        </div>
+        <div class="flex">
+          <div class="event__date">{{ gerStartDate }}</div>
+          <div class="event__date" v-if="gerEndDate !== 'Invalid Date'">
+            - {{ gerEndDate }}
+          </div>
         </div>
       </div>
+      <div class="event__detail" v-if="active" v-html="detailHTML"></div>
+      <!-- <div class="readmore flex justify-center align-center">Mehr erfahren</div> -->
     </div>
-    <div class="event__detail" v-if="active" v-html="detailHTML"></div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -59,23 +62,27 @@ export default {
 @import '../scss/vars';
 .event {
   padding: 1em;
-  // border-top: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   position: relative;
   margin-bottom: 1.5rem;
-  background: $clr-event-bg;
   cursor: pointer;
+  // height: 160px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 
+  &__header {
+    // padding-bottom: 2rem;
+    // border-bottom: 1px solid black;
+  }
   &__title {
     font-size: $fs-600;
-    font-weight: normal;
-    // margin-top: 1rem;
+    font-weight: 300;
   }
 
   &__date {
     font-size: $fs-small;
-    font-weight: bolder;
+    // font-weight: bolder;
     margin-right: 3px;
+    opacity: 0.7;
   }
 
   &__title,
@@ -85,17 +92,13 @@ export default {
 
   &__detail {
     margin-block: 2rem;
-    font-size: $fs-400;
+    font-size: 1rem;
     width: 80%;
     color: $clr-text-500;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   img {
-    // position: absolute;
-    // top: 2rem;
-    // right: 0;
-    // bottom: 0;
     height: 50px;
     transition: transform 0.3s;
   }
@@ -103,5 +106,23 @@ export default {
   img.flip {
     transform: rotate(180deg);
   }
+}
+
+.fade-enter-from {
+  transform: scaleY(0);
+}
+
+.fade-enter-to {
+  transform: scaleY(1);
+}
+.fade-enter-active {
+  transition: transform 300ms;
+}
+
+.readmore {
+  position: absolute;
+  inset: 0;
+  top: 4rem;
+  background-image: linear-gradient(transparent, rgba($clr-main-bg, 1));
 }
 </style>
