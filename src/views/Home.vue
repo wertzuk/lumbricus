@@ -221,7 +221,7 @@ export default {
 }
 
 .list {
-  margin: 10rem 10%;
+  margin: 10rem 0;
 }
 
 .new-event {
@@ -241,8 +241,8 @@ export default {
 .program-grid {
   margin-top: 3rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  border-radius: 50px;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   overflow: hidden;
 
   & > div {
@@ -255,12 +255,16 @@ export default {
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 2rem 1rem 1rem;
       text-align: center;
       text-transform: uppercase;
+      font-size: $fs-400;
       color: white;
-      background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-      display: block;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 1rem;
+      text-transform: uppercase;
     }
     img {
       object-fit: cover;

@@ -1,28 +1,21 @@
 <template>
-  <transition name="fade">
-    <div class="event" @click="toggleActive">
-      <div class="event__header justify-between align-center">
-        <div class="flex justify-between">
-          <h2 class="event__title">
-            {{ title }}
-          </h2>
-          <img
-            src="../assets/icons/icon-next.svg"
-            alt=""
-            :class="{ flip: active }"
-          />
-        </div>
-        <div class="flex">
-          <div class="event__date">{{ gerStartDate }}</div>
-          <div class="event__date" v-if="gerEndDate !== 'Invalid Date'">
-            - {{ gerEndDate }}
-          </div>
+  <div class="event" @click="toggleActive" :class="{ active: active }">
+    <div class="event__header justify-between align-center">
+      <div class="flex justify-between">
+        <h2 class="event__title">
+          {{ title }}
+        </h2>
+      </div>
+      <div class="flex">
+        <div class="event__date">{{ gerStartDate }}</div>
+        <div class="event__date" v-if="gerEndDate !== 'Invalid Date'">
+          - {{ gerEndDate }}
         </div>
       </div>
-      <div class="event__detail" v-if="active" v-html="detailHTML"></div>
-      <!-- <div class="readmore flex justify-center align-center">Mehr erfahren</div> -->
     </div>
-  </transition>
+    <div class="event__detail" v-html="detailHTML"></div>
+    <!-- <div class="readmore flex justify-center align-center">Mehr erfahren</div> -->
+  </div>
 </template>
 
 <script>
@@ -65,14 +58,15 @@ export default {
   position: relative;
   margin-bottom: 1.5rem;
   cursor: pointer;
-  // height: 160px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  // max-height: 160px;
+  transition: max-height 0.4s ease-in-out;
 
-  &__header {
-    // padding-bottom: 2rem;
-    // border-bottom: 1px solid black;
-  }
+  // &.active {
+  //   max-height: 1000px;
+  // }
+
   &__title {
     font-size: $fs-600;
     font-weight: 300;
@@ -80,7 +74,6 @@ export default {
 
   &__date {
     font-size: $fs-small;
-    // font-weight: bolder;
     margin-right: 3px;
     opacity: 0.7;
   }
@@ -102,21 +95,6 @@ export default {
     height: 50px;
     transition: transform 0.3s;
   }
-
-  img.flip {
-    transform: rotate(180deg);
-  }
-}
-
-.fade-enter-from {
-  transform: scaleY(0);
-}
-
-.fade-enter-to {
-  transform: scaleY(1);
-}
-.fade-enter-active {
-  transition: transform 300ms;
 }
 
 .readmore {
