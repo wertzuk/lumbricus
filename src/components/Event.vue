@@ -8,9 +8,7 @@
       </div>
       <div class="flex">
         <div class="event__date">{{ gerStartDate }}</div>
-        <div class="event__date" v-if="gerEndDate !== 'Invalid Date'">
-          - {{ gerEndDate }}
-        </div>
+        <div class="event__date" v-if="gerEndDate">- {{ gerEndDate }}</div>
       </div>
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
@@ -37,8 +35,20 @@ export default {
       month: 'long',
       day: 'numeric',
     };
+
+    function datesEqual(a, b) {
+      return !(a > b || b > a);
+    }
+
     const gerStartDate = startDate.toLocaleDateString('de-DE', options);
-    const gerEndDate = endDate.toLocaleDateString('de-DE', options);
+    let gerEndDate = null;
+
+    const sameDate = datesEqual(startDate, endDate);
+    if (!sameDate) {
+      console.log(startDate);
+      console.log(endDate);
+      gerEndDate = endDate.toLocaleDateString('de-DE', options);
+    }
 
     return {
       toggleActive,
@@ -54,7 +64,7 @@ export default {
 @import '../scss/utiltities';
 @import '../scss/vars';
 .event {
-  padding: 1em;
+  padding: 1.5em 2em;
   position: relative;
   margin-bottom: 1.5rem;
   cursor: pointer;

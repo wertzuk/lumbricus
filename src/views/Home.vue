@@ -87,7 +87,7 @@
       <button class="btn btn-month">November</button>
       <button class="btn btn-month">Dezember</button>
     </div>
-    <ul>
+    <ul class="event-list">
       <li v-for="post in filterByDays" :key="post.id">
         <Event
           :title="post.title"
@@ -221,7 +221,7 @@ export default {
 }
 
 .list {
-  margin: 10rem 0;
+  margin: 10rem 2rem;
 }
 
 .new-event {
@@ -243,13 +243,14 @@ export default {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  overflow: hidden;
+  // overflow: hidden;
 
   & > div {
     // height: 300px;
     aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     span {
       position: absolute;
       bottom: 0;
@@ -275,12 +276,9 @@ export default {
   }
 }
 
-.corousel {
-  margin-block: 8rem;
-}
-
 .events {
-  margin: 10rem 10%;
+  margin: 10rem auto;
+  width: 60%;
   &__heading {
     display: flex;
     align-items: center;
@@ -302,6 +300,13 @@ export default {
   .btn-month.active {
     background: rgba(0, 0, 0, 0.3);
   }
+}
+
+.event-list {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // gap: 2rem;
+  // grid-template-rows: 1fr auto;
 }
 
 @media only screen and(min-width: 1800px) {
