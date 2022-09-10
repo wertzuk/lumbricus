@@ -1,3 +1,5 @@
+@import 'vars';
+
 .flex {
   display: flex;
 }
@@ -36,4 +38,8 @@
 
 .heading {
   font-family: 'Alwyn New', sans-serif;
+}
+
+.main-text-clr {
+  color: $clr-text-400;
 }

@@ -7,8 +7,7 @@
         </h2>
       </div>
       <div class="flex">
-        <div class="event__date">{{ gerStartDate }}</div>
-        <div class="event__date" v-if="gerEndDate">- {{ gerEndDate }}</div>
+        <div class="event__date">{{ dateStr }}</div>
       </div>
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
@@ -18,6 +17,7 @@
 
 <script>
 import { ref } from 'vue';
+import { transformDates } from '@/utils/utils';
 
 export default {
   props: ['title', 'startDate', 'endDate', 'detailHTML'],
@@ -29,32 +29,13 @@ export default {
 
     const startDate = new Date(props.startDate);
     const endDate = new Date(props.endDate);
-    const options = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
 
-    function datesEqual(a, b) {
-      return !(a > b || b > a);
-    }
-
-    const gerStartDate = startDate.toLocaleDateString('de-DE', options);
-    let gerEndDate = null;
-
-    const sameDate = datesEqual(startDate, endDate);
-    if (!sameDate) {
-      console.log(startDate);
-      console.log(endDate);
-      gerEndDate = endDate.toLocaleDateString('de-DE', options);
-    }
+    const dateStr = transformDates(startDate, endDate);
 
     return {
       toggleActive,
       active,
-      gerStartDate,
-      gerEndDate,
+      dateStr,
     };
   },
 };

@@ -4,10 +4,10 @@
       <img src="../assets/event_images/IMG_4767.jpg" class="rounded-1" alt="" />
     </div>
     <div class="card__title">
-      Kinder-Ferien-Programm von NABU/NAJU Saarland e.V.: Sommercamp „Fuchsbau“
+      {{ title }}
     </div>
-    <div class="card__date">SA. 28.05.2022 14:00-16:00 Uhr</div>
-    <div class="card__content">„Ach schüttel mich, ach rüttel mich…“</div>
+    <div class="card__date">{{ startDate }}</div>
+    <div class="card__content" v-html="detailHTML"></div>
   </div>
   <transition name="fade">
     <div v-if="showContent">
@@ -49,6 +49,7 @@
 import { ref } from 'vue';
 
 export default {
+  props: ['title', 'startDate', 'endDate', 'detailHTML'],
   setup() {
     const showContent = ref(false);
     return {
@@ -58,7 +59,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../scss/vars';
 .card {
   flex-direction: column;
@@ -83,14 +84,13 @@ export default {
       object-fit: cover;
     }
   }
-  &__title {
-  }
   &__date {
     font-weight: bolder;
   }
 
   &:not(:first-child) {
     margin-top: calc(5rem * -1);
+    background: red;
   }
 
   &:nth-child(2n) {
