@@ -1,6 +1,6 @@
 <template>
   <h1 class="section-heading">Neue Veranstaltung hinzufügen</h1>
-  <!-- <form class="event-form">
+  <form class="event-form">
     <div class="form-row flex flex-col">
       <label for="title">Titel</label>
       <input type="text" id="title" v-model="title" required />
@@ -25,15 +25,15 @@
     />
     <button class="btn" @click.prevent="submit">Veranstaltung erstellen</button>
   </form>
-  <div class="dialog1" v-if="success">Erfolgreich erstellt</div> -->
+  <div class="dialog1" v-if="success">Erfolgreich erstellt</div>
   <!-- <Popup title="blabal" isSuccess /> -->
 </template>
 
-<!-- <script>
+<script>
 import { useStore } from 'vuex';
-import { QuillEditor } from '@vueup/vue-quill';
-import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { ref } from 'vue';
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import { QuillEditor } from '@vueup/vue-quill';
 // import Popup from '@/components/Popup.vue';
 
 export default {
@@ -56,6 +56,7 @@ export default {
     function start(quill) {
       quillEditor = quill;
       editor.value = quill;
+      console.log(quillEditor);
     }
 
     async function submit() {
@@ -157,4 +158,4 @@ input[type='date'] {
     background: rgba(0, 0, 0, 0.1);
   }
 }
-</style> -->
+</style>

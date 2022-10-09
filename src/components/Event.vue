@@ -53,6 +53,7 @@ export default {
   overflow: hidden;
   // max-height: 160px;
   transition: max-height 0.4s ease-in-out;
+  background: rgb(210, 239, 212);
 
   // &.active {
   //   max-height: 1000px;

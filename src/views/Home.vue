@@ -136,7 +136,6 @@ export default {
     }
 
     const filterByDays = computed(() => {
-      console.log(currentFilter);
       if (currentFilter.value === null) return store.state.posts;
       return store.getters.filterByMonths(currentFilter.value);
     });
