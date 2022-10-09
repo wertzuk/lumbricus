@@ -32,6 +32,7 @@
 <script>
 import { useStore } from 'vuex';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { QuillEditor } from '@vueup/vue-quill';
 // import Popup from '@/components/Popup.vue';
@@ -47,6 +48,7 @@ export default {
     const dateEnd = ref('');
     const title = ref('');
     const success = ref(false);
+    const router = useRouter();
 
     const dialog = ref(null);
 
@@ -76,11 +78,9 @@ export default {
         },
       );
       if (response.ok) {
-        console.log('data got send');
         success.value = true;
-        setTimeout(() => {
-          success.value = false;
-        }, 3000);
+        alert('Erstellt');
+        router.push('/');
       }
 
       store.state.posts.push(post);

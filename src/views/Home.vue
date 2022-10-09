@@ -168,6 +168,7 @@ export default {
     flex-basis: 35%;
     height: 100%;
     background-image: url(../assets/big-img.jpg);
+    // background-image: url(../assets/wurm_neu.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;

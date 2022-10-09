@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
-    <!-- <div class="readmore flex justify-center align-center">Mehr erfahren</div> -->
+    <div>Zur Anmeldung</div>
   </div>
 </template>
 
