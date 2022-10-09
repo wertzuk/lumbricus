@@ -34,6 +34,7 @@ import { useStore } from 'vuex';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
+import '@vueup/vue-quill/dist/vue-quill.bubble.css';
 import { QuillEditor } from '@vueup/vue-quill';
 // import Popup from '@/components/Popup.vue';
 
@@ -157,5 +158,9 @@ input[type='date'] {
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
+}
+
+.ql-container.ql-snow {
+  border: 1px solid black !important;
 }
 </style>

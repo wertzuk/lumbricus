@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
-    <div>Zur Anmeldung</div>
+    <button class="sign-in btn">Zur Anmeldung</button>
   </div>
 </template>
 
@@ -94,5 +94,18 @@ export default {
   inset: 0;
   top: 4rem;
   background-image: linear-gradient(transparent, rgba($clr-main-bg, 1));
+}
+
+.sign-in {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  padding: 1rem;
+  transition: all 0.2s;
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
 }
 </style>

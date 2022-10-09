@@ -8,12 +8,15 @@
         <h1>Herzlich Willkommen!</h1>
         <h2>Guido Guisens Umwelt Endutainment</h2>
       </div>
-      <p class="main-text">
-        Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
-        dazu die Begabung, all das zu genießen! (indianische Weisheit)
-      </p>
+      <div class="txt flex">
+        <p class="main-text">
+          Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
+          dazu die Begabung, all das zu genießen! (indianische Weisheit)
+        </p>
+        <div><img src="../assets/wurm_neu.png" alt="" /></div>
+      </div>
 
-      <div class="flex g-2 justify-center">
+      <div class="flex g-2 justify-center buttons">
         <Button title="Unser Angebot" @click="scrollToOffering" />
         <Button title="Nächste Veranstaltungen" @click="scrollToElement" />
       </div>
@@ -300,6 +303,10 @@ export default {
   .btn-month.active {
     background: rgba(0, 0, 0, 0.3);
   }
+}
+
+.buttons {
+  margin-top: 2rem;
 }
 
 .event-list {
