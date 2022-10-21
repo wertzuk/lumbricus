@@ -13,7 +13,7 @@
           Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
           dazu die Begabung, all das zu genießen! (indianische Weisheit)
         </p>
-        <div><img src="../assets/wurm_neu.png" alt="" /></div>
+        <div class="worm"><img src="../assets/wurm.png" alt="" /></div>
       </div>
 
       <div class="flex g-2 justify-center buttons">
@@ -191,6 +191,10 @@ export default {
     text-align: left;
     margin-left: 6rem;
   }
+  .worm {
+    width: 40%;
+    aspect-ratio: 1;
+  }
 }
 .right-img {
   width: 100vw;
@@ -201,8 +205,6 @@ export default {
   // aspect-ratio: 4/3;
   // clip-path: circle(40.8% at 100% 49%);
   img {
-    height: 100%;
-    width: 100%;
     object-fit: cover;
   }
 }
@@ -307,13 +309,6 @@ export default {
 
 .buttons {
   margin-top: 2rem;
-}
-
-.event-list {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // gap: 2rem;
-  // grid-template-rows: 1fr auto;
 }
 
 @media only screen and(min-width: 1800px) {
