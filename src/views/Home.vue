@@ -83,15 +83,14 @@
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
-      <button class="btn btn-month" @click="setFilter(6)">Juli</button>
+      <button class="btn btn-month" @click="setFilter(6)">
+        Nächste 3 Monate
+      </button>
       <button class="btn btn-month" @click="setFilter(7)">August</button>
       <button class="btn btn-month" @click="setFilter(8)">September</button>
-      <button class="btn btn-month">Oktober</button>
-      <button class="btn btn-month">November</button>
-      <button class="btn btn-month">Dezember</button>
     </div>
     <ul class="event-list">
-      <li v-for="post in filterByDays" :key="post.id">
+      <li v-for="post in filtered" :key="post.id">
         <Event
           :title="post.title"
           :startDate="post.dateStart"
@@ -143,6 +142,8 @@ export default {
       return store.getters.filterByMonths(currentFilter.value);
     });
 
+    const filtered = computed(() => store.getters.filterUpcoming);
+
     onMounted(() => {
       store.dispatch('getPosts');
     });
@@ -155,6 +156,7 @@ export default {
       scrollToOffering,
       offering,
       events,
+      filtered,
     };
   },
 };
@@ -246,7 +248,7 @@ export default {
 .program-grid {
   margin-top: 3rem;
   display: grid;
-  gap: 2rem;
+  gap: 0.5rem;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   // overflow: hidden;
 

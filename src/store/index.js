@@ -1,3 +1,4 @@
+/* eslint implicit-arrow-linebreak: ["error", "beside"] */
 import { createStore } from 'vuex';
 
 export default createStore({
@@ -6,11 +7,17 @@ export default createStore({
   },
   mutations: {},
   getters: {
-    filterByMonths: (state) => (month) => {
-      console.log(month);
+    // filterByMonths: (state) => (month) =>
+    //   state.posts.filter((post) => {
+    //     const comp = new Date(post.dateStart);
+    //     return comp.getMonth() === month;
+    //   }),
+    filterUpcoming: (state) => {
+      const date = new Date('2022-09-21T12:17:52.650Z');
+      // const date = new Date();
       return state.posts.filter((post) => {
-        const comp = new Date(post.dateStart);
-        return comp.getMonth() === month;
+        const postDate = new Date(post.dateStart);
+        return date.getTime() < postDate.getTime();
       });
     },
   },

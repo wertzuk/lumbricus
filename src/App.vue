@@ -30,6 +30,7 @@ body {
   overflow-x: hidden;
   line-height: 1.6;
   background: $clr-main-bg;
+  background: $main-clr-bg;
 }
 
 // .section-heading {
@@ -60,6 +61,17 @@ body {
   }
 }
 
+.ql-toolbar.ql-snow {
+  border: 1px solid rgba(0, 0, 0, 0.6) !important;
+}
+
+.ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: 0px !important;
+}
+
+.ql-container.ql-snow {
+  border: 1px solid rgba(0, 0, 0, 0.6) !important;
+}
 .hidden {
   display: none;
 }
