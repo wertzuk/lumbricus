@@ -110,9 +110,6 @@ export default {
 @import '../scss/vars';
 
 .dailog1 {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
   padding: 1.5rem;
   border: none;
   background: red;
@@ -125,7 +122,7 @@ h1 {
 .event-form {
   width: 70%;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 }
 
 input {
@@ -161,6 +158,6 @@ input[type='date'] {
 }
 
 .ql-container.ql-snow {
-  border: 1px solid black !important;
+  border: 1px solid black !important  ;
 }
 </style>

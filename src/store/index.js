@@ -7,11 +7,6 @@ export default createStore({
   },
   mutations: {},
   getters: {
-    // filterByMonths: (state) => (month) =>
-    //   state.posts.filter((post) => {
-    //     const comp = new Date(post.dateStart);
-    //     return comp.getMonth() === month;
-    //   }),
     filterUpcoming: (state) => {
       const date = new Date('2022-09-21T12:17:52.650Z');
       // const date = new Date();

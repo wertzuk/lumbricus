@@ -90,7 +90,7 @@
       <button class="btn btn-month" @click="setFilter(8)">September</button>
     </div>
     <ul class="event-list">
-      <li v-for="post in filtered" :key="post.id">
+      <li v-for="post in posts" :key="post.id">
         <Event
           :title="post.title"
           :startDate="post.dateStart"
@@ -141,6 +141,7 @@ export default {
       if (currentFilter.value === null) return store.state.posts;
       return store.getters.filterByMonths(currentFilter.value);
     });
+    console.log(filterByDays);
 
     const filtered = computed(() => store.getters.filterUpcoming);
 
