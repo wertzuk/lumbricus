@@ -6,7 +6,7 @@
     <div class="welcome__content">
       <div class="main-heading">
         <h1>Herzlich Willkommen!</h1>
-        <h2>Guido Guisens Umwelt Endutainment</h2>
+        <h2>Guido Geisens Umwelt Endutainment</h2>
       </div>
       <div class="txt flex">
         <p class="main-text">
