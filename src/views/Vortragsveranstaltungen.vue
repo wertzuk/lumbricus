@@ -1,18 +1,47 @@
 <template>
-  <h1 class="section-heading">Vortragsveranstaltungen</h1>
-  <div class="wrapper flex">
-    <div class="left-main">
-      <div v-for="post in posts" :key="post.id">
-        <NewCard
-          :title="post.title"
-          :startDate="post.dateStart"
-          :endDate="post.dateEnd"
-          :detailHTML="post.content"
-        />
+  <header>
+    <h1 class="section-heading">Vortragsveranstaltungen</h1>
+  </header>
+  <main>
+    <div class="top">
+      <div class="image-container">
+        <div class="img flex g-2">
+          <img
+            src="../assets/event_images/IMG_4767.jpg"
+            class="rounded-1"
+            alt=""
+          />
+        </div>
+        <div class="img flex g-2">
+          <img
+            src="../assets/event_images/IMG_4767.jpg"
+            class="rounded-1"
+            alt=""
+          />
+        </div>
+        <div class="img flex g-2">
+          <img
+            src="../assets/event_images/IMG_4767.jpg"
+            class="rounded-1"
+            alt=""
+          />
+        </div>
+        <div class="img flex g-2">
+          <img
+            src="../assets/event_images/IMG_4767.jpg"
+            class="rounded-1"
+            alt=""
+          />
+        </div>
+        <div class="img flex g-2">
+          <img
+            src="../assets/event_images/IMG_4767.jpg"
+            class="rounded-1"
+            alt=""
+          />
+        </div>
       </div>
-    </div>
-    <div class="right-main">
-      <div class="event-description main-text-clr">
+      <div class="text-container">
         <p>
           Unsere Vortragsveranstaltungen richten sich vor allem an Obst- und
           Gartenbauvereine, Landfrauenverbände, aber natürlich auch an andere
@@ -51,24 +80,12 @@
           Finkenrech (bei Dirmingen) gehalten werden.
         </p>
       </div>
-      <div class="img flex g-2">
-        <img
-          src="../assets/event_images/IMG_4767.jpg"
-          class="rounded-1"
-          alt=""
-        />
-        <img
-          src="../assets/event_images/IMG_4767.jpg"
-          class="rounded-1"
-          alt=""
-        />
-      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
-import NewCard from '@/components/NewCard.vue';
+// import NewCard from '@/components/NewCard.vue';
 // import Event from '@/components/Event.vue';
 import { useStore } from 'vuex';
 import { transformDates } from '@/utils/utils';
@@ -79,7 +96,7 @@ export default {
   },
   components: {
     // Event,
-    NewCard,
+    // NewCard,
   },
 
   setup() {
@@ -101,36 +118,34 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/vars';
 
-.section-heading {
+h1 {
   text-align: center;
-  margin-block: 2rem;
 }
-.wrapper {
-  margin: 3rem;
-  transition: transform 600ms ease-in-out;
-  // gap: 3rem;
+.top {
+  display: flex;
 }
-.left-main {
-  flex-basis: 40%;
-}
-.img {
-  // width: 800px;
-  aspect-ratio: 25/9;
-  width: 400px;
-  height: 400px;
-  margin-top: 2rem;
+.image-container {
+  flex-basis: 50%;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  .img {
+    height: 250px;
+  }
   img {
-    height: 100%;
     object-fit: cover;
+    width: 100%;
+    width: 100%;
   }
 }
-.right-main {
-  // display: grid;
-  // grid-template-columns: 1fr 1fr;
-  padding-inline: 4rem;
-}
-
-.event-description {
-  flex: 1;
+.text-container {
+  flex-basis: 50%;
+  padding: 2rem;
+  font-size: 20px;
+  color: $clr-text-400;
+  p {
+    margin-bottom: 1em;
+  }
 }
 </style>
