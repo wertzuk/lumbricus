@@ -13,7 +13,7 @@
           Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
           dazu die Begabung, all das zu genießen! (indianische Weisheit)
         </p>
-        <div class="worm"><img src="../assets/wurm.png" alt="" /></div>
+        <!-- <div class="worm"><img src="../assets/wurm.png" alt="" /></div> -->
       </div>
 
       <div class="flex g-2 justify-center buttons">
@@ -31,7 +31,7 @@
     <div class="program-grid">
       <div>
         <span>Wildkräuterwanderungen (mit Verkostung)</span
-        ><img src="../assets/wk.jpg" alt="" />
+        ><img src="../assets/wk.jpg" alt="" loading="lazy" />
       </div>
       <div>
         <span>Kräuterseminare</span><img src="../assets/seminare.jpg" alt="" />
