@@ -83,11 +83,9 @@
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
-      <button class="btn btn-month" @click="setFilter(6)">
-        Nächste 3 Monate
-      </button>
-      <button class="btn btn-month" @click="setFilter(7)">August</button>
-      <button class="btn btn-month" @click="setFilter(8)">September</button>
+      <button class="btn btn-month">Nächste 3 Monate</button>
+      <button class="btn btn-month">August</button>
+      <button class="btn btn-month">September</button>
     </div>
     <ul class="event-list">
       <li v-for="post in posts" :key="post.id">
