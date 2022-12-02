@@ -18,9 +18,8 @@ export default createStore({
   },
   actions: {
     async getPosts() {
-      const BASE_URL = 'https://lumbricus.herokuapp.com/server/api';
-
-      // const BASE_URL = 'http://localhost/lumbricus/server/api';
+      const BASE_URL = 'http://localhost/lumbricus/server/api';
+      // const BASE_URL = 'https://lumbricus.herokuapp.com/server/api';
 
       const response = await fetch(`${BASE_URL}/posts.php`);
       const { data } = await response.json();

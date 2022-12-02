@@ -247,7 +247,7 @@ export default {
 .program-grid {
   margin-top: 3rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 2.5rem;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   // overflow: hidden;
 
@@ -257,6 +257,7 @@ export default {
     overflow: hidden;
     position: relative;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
     span {
       position: absolute;
       bottom: 0;

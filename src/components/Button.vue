@@ -20,9 +20,10 @@ export default {
   min-width: 250px;
   font-size: $fs-500;
   color: $clr-text-400;
-  background: rgb(227, 245, 227);
+  background: $clr-beige;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.2s;
+  border-radius: 8px;
   &:hover {
     background: rgb(213, 245, 213);
   }
