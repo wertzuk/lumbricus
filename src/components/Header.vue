@@ -27,7 +27,6 @@ export default {
   &__logo {
     font-weight: 400;
     font-size: $fs-800;
-    // padding: $padding-header;
     color: black;
     margin-right: 5%;
     font-family: 'Alwyn New', sans-serif;

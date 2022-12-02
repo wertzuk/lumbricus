@@ -57,11 +57,6 @@ export default {
     & > li {
       position: relative;
       padding: $padding-header;
-      // & > a:hover {
-      //   &::after {
-      //     transform: scale(1);
-      //   }
-      // }
     }
   }
 
@@ -107,10 +102,14 @@ export default {
   }
   li {
     border-bottom: $border-nav;
-    background: $clr-main-bg;
+    background: $main-clr-bg;
+    transition: all 300ms;
 
     &:last-child {
       border: none;
+    }
+    &:hover {
+      background: #ccf7bd;
     }
   }
   a {
@@ -118,7 +117,6 @@ export default {
     display: block;
     font-size: $fs-small;
     text-transform: none;
-    // padding-bottom: 0.5rem;
   }
 }
 
