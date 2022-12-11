@@ -29,15 +29,8 @@ body {
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
-  background: $clr-main-bg;
   background: $main-clr-bg;
 }
-
-// .section-heading {
-//   font-size: 4rem;
-//   font-weight: 400;
-//   margin: 1rem 0 2rem;
-// }
 
 .section-heading {
   font-family: 'Alwyn New', sans-serif;

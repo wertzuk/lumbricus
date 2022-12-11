@@ -2,7 +2,7 @@
   <nav class="nav flex justify-between align-center">
     <ul class="flex justify-between nav__list">
       <li><router-link to="/">Home</router-link></li>
-      <li @click="listActive = !listActive">
+      <li @click.stop="listActive = !listActive">
         <span to="/">Programm</span>
         <img src="../assets/icons/icon-arrow.svg" alt="" class="icon-down" />
         <ul class="program" :class="{ hidden: !listActive }">
@@ -35,6 +35,9 @@ import { ref } from 'vue';
 export default {
   setup() {
     const listActive = ref(false);
+    document.body.addEventListener('click', () => {
+      listActive.value = false;
+    });
 
     return {
       listActive,

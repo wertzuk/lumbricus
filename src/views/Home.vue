@@ -6,7 +6,7 @@
     <div class="welcome__content">
       <div class="main-heading">
         <h1>Herzlich Willkommen!</h1>
-        <h2>Guido Geisens Umwelt Endutainment</h2>
+        <h2>Guido Geisens Umwelt Edutainment</h2>
       </div>
       <div class="txt flex">
         <p class="main-text">
@@ -83,12 +83,16 @@
     </div>
     <div class="months flex g-2 align-center">
       <span>FILTER</span>
-      <button class="btn btn-month">Nächste 3 Monate</button>
-      <button class="btn btn-month">August</button>
-      <button class="btn btn-month">September</button>
+      <button class="btn btn-month" @click="showPassed">
+        Vergangene Veranstaltungen
+      </button>
+      <button class="btn btn-month" @click="showUpcoming">
+        Nächste Veranstaltungen
+      </button>
+      <button class="btn btn-month" @click="clearFilter">Clear</button>
     </div>
     <ul class="event-list">
-      <li v-for="post in posts" :key="post.id">
+      <li v-for="post in filtered" :key="post.id">
         <Event
           :title="post.title"
           :startDate="post.dateStart"
@@ -96,7 +100,7 @@
           :detailHTML="post.content"
         />
       </li>
-      <span v-if="filterByDays.length === 0"
+      <span v-if="posts.length === 0"
         >Keine Veranstaltungen in diesem Monat!</span
       >
     </ul>
@@ -104,11 +108,12 @@
 </template>
 
 <script>
+/* eslint-disable */
+
 import Event from '@/components/Event.vue';
 import { useStore } from 'vuex';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, reactive, ref } from 'vue';
 import Button from '../components/Button.vue';
-// import Carousel from '../components/Carousel.vue';
 
 export default {
   name: 'Home',
@@ -117,8 +122,6 @@ export default {
     const store = useStore();
     const offering = ref(null);
     const events = ref(null);
-
-    const currentFilter = ref(null);
 
     function scrollToElement() {
       if (events.value) {
@@ -131,31 +134,41 @@ export default {
         offering.value.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    function setFilter(month) {
-      currentFilter.value = month;
-    }
-
-    const filterByDays = computed(() => {
-      if (currentFilter.value === null) return store.state.posts;
-      return store.getters.filterByMonths(currentFilter.value);
-    });
-    console.log(filterByDays);
-
-    const filtered = computed(() => store.getters.filterUpcoming);
 
     onMounted(() => {
       store.dispatch('getPosts');
     });
 
+    const posts = computed(() => store.state.posts);
+    let filtered = reactive(null);
+    filtered = posts;
+
+    // filtered = posts;
+
+    function showPassed() {
+      filtered = store.getters.filterPassed;
+      console.log(filtered);
+    }
+
+    function showUpcoming() {
+      filtered = store.getters.filterUpcoming;
+      console.log(filtered);
+    }
+    function clearFilter() {
+      filtered = store.state.posts;
+      filtered = null;
+    }
+
     return {
-      posts: computed(() => store.state.posts),
-      filterByDays,
-      setFilter,
+      posts,
       scrollToElement,
       scrollToOffering,
       offering,
       events,
       filtered,
+      showPassed,
+      showUpcoming,
+      clearFilter,
     };
   },
 };

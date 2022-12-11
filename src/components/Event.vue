@@ -48,17 +48,11 @@ export default {
   padding: 1.5em 2em;
   position: relative;
   margin-bottom: 1.5rem;
-  cursor: pointer;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  // max-height: 160px;
   transition: max-height 0.4s ease-in-out;
   background: $clr-beige;
   border-radius: 16px;
-
-  // &.active {
-  //   max-height: 1000px;
-  // }
 
   &__title {
     font-size: $fs-600;
@@ -88,13 +82,6 @@ export default {
     height: 50px;
     transition: transform 0.3s;
   }
-}
-
-.readmore {
-  position: absolute;
-  inset: 0;
-  top: 4rem;
-  background-image: linear-gradient(transparent, rgba($clr-main-bg, 1));
 }
 
 .sign-in {

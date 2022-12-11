@@ -5,41 +5,7 @@
   <main>
     <div class="top">
       <div class="image-container">
-        <div class="img flex g-2">
-          <img
-            src="../assets/event_images/IMG_4767.jpg"
-            class="rounded-1"
-            alt=""
-          />
-        </div>
-        <div class="img flex g-2">
-          <img
-            src="../assets/event_images/IMG_4767.jpg"
-            class="rounded-1"
-            alt=""
-          />
-        </div>
-        <div class="img flex g-2">
-          <img
-            src="../assets/event_images/IMG_4767.jpg"
-            class="rounded-1"
-            alt=""
-          />
-        </div>
-        <div class="img flex g-2">
-          <img
-            src="../assets/event_images/IMG_4767.jpg"
-            class="rounded-1"
-            alt=""
-          />
-        </div>
-        <div class="img flex g-2">
-          <img
-            src="../assets/event_images/IMG_4767.jpg"
-            class="rounded-1"
-            alt=""
-          />
-        </div>
+        <Carousel />
       </div>
       <div class="text-container">
         <p>
@@ -85,18 +51,16 @@
 </template>
 
 <script>
-// import NewCard from '@/components/NewCard.vue';
-// import Event from '@/components/Event.vue';
 import { useStore } from 'vuex';
 import { transformDates } from '@/utils/utils';
+import Carousel from '@/components/Carousel.vue';
 
 export default {
   props: {
     title: String,
   },
   components: {
-    // Event,
-    // NewCard,
+    Carousel,
   },
 
   setup() {
@@ -125,24 +89,13 @@ h1 {
   display: flex;
 }
 .image-container {
-  flex-basis: 50%;
+  flex-basis: 40%;
   padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
-  .img {
-    height: 250px;
-  }
-  img {
-    object-fit: cover;
-    width: 100%;
-    width: 100%;
-  }
 }
 .text-container {
   flex-basis: 50%;
   padding: 2rem;
-  font-size: 20px;
+  font-size: $fs-400;
   color: $clr-text-400;
   p {
     margin-bottom: 1em;

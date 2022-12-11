@@ -15,6 +15,14 @@ export default createStore({
         return date.getTime() < postDate.getTime();
       });
     },
+    filterPassed: (state) => {
+      const date = new Date('2022-09-21T12:17:52.650Z');
+      // const date = new Date();
+      return state.posts.filter((post) => {
+        const postDate = new Date(post.dateStart);
+        return date.getTime() > postDate.getTime();
+      });
+    },
   },
   actions: {
     async getPosts() {
