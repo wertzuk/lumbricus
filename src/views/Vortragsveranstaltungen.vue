@@ -5,7 +5,7 @@
   <main>
     <div class="top">
       <div class="image-container">
-        <Carousel />
+        <Carousel :images="sources1" />
       </div>
       <div class="text-container">
         <p>
@@ -66,7 +66,10 @@ export default {
   setup() {
     const store = useStore();
     const { posts } = store.state;
-    console.log(posts);
+    const { imageSources } = store.state;
+    console.log(imageSources);
+    const { sources1 } = imageSources;
+    console.log(sources1);
     function datesToString(start, end) {
       return transformDates(start, end);
     }
@@ -74,6 +77,7 @@ export default {
     return {
       posts,
       datesToString,
+      sources1,
     };
   },
 };

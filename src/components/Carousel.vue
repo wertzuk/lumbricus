@@ -20,25 +20,17 @@ export default {
   components: {
     CarouselItem,
   },
-  setup() {
-    const images = [
-      'slide-1.jpg',
-      'slide-2.jpg',
-      'slide-3.jpg',
-      'slide-4.jpg',
-      'slide-5.jpg',
-      'slide-6.jpg',
-    ];
-
+  props: {
+    images: Array,
+  },
+  setup(props) {
     const SLIDE_DURATION = 4000;
-
     let slideIntervall = reactive(null);
     const currentSlide = ref(0);
     onMounted(() => {
       slideIntervall = setInterval(() => {
-        console.log(currentSlide.value);
         currentSlide.value += 1;
-        if (currentSlide.value === images.length) {
+        if (currentSlide.value === props.images.length) {
           currentSlide.value = 0;
         }
       }, SLIDE_DURATION);
@@ -49,7 +41,6 @@ export default {
     });
 
     return {
-      images,
       currentSlide,
       slideIntervall,
     };

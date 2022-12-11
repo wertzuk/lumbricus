@@ -4,6 +4,19 @@ import { createStore } from 'vuex';
 export default createStore({
   state: {
     posts: [],
+    imageSources: {
+      sources1: [
+        'slide-1.jpg',
+        'slide-2.jpg',
+        'slide-3.jpg',
+        'slide-4.jpg',
+        'slide-5.jpg',
+        'slide-6.jpg',
+      ],
+      sources2: ['slide-1.jpg', 'slide-2.jpg', 'slide-3.jpg'],
+      sources3: ['slide-1.jpg', 'slide-2.jpg', 'slide-3.jpg'],
+      sources4: ['slide-1.jpg', 'slide-2.jpg', 'slide-3.jpg'],
+    },
   },
   mutations: {},
   getters: {
