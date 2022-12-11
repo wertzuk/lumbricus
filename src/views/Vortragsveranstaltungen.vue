@@ -67,9 +67,7 @@ export default {
     const store = useStore();
     const { posts } = store.state;
     const { imageSources } = store.state;
-    console.log(imageSources);
     const { sources1 } = imageSources;
-    console.log(sources1);
     function datesToString(start, end) {
       return transformDates(start, end);
     }

@@ -23,6 +23,7 @@ export default {
 .header {
   position: relative;
   padding-inline: 3rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 
   &__logo {
     font-weight: 400;
@@ -31,6 +32,6 @@ export default {
     margin-right: 5%;
     font-family: 'Alwyn New', sans-serif;
   }
-  border-bottom: $border-nav;
+  // border-bottom: $border-nav;
 }
 </style>
