@@ -5,6 +5,7 @@ import Erlebniskurse from '../views/Erlebniskurse.vue';
 import Wanderungen from '../views/Wanderungen.vue';
 import Geburtstage from '../views/Waldgeburtstage.vue';
 import NewEvent from '../views/NewEvent.vue';
+import Gaestebuch from '../views/Gaestebuch.vue';
 import About from '../views/About.vue';
 
 const routes = [
@@ -42,6 +43,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About,
+  },
+  {
+    path: '/gaestebuch',
+    name: 'Gaestebuch',
+    component: Gaestebuch,
   },
 ];
 

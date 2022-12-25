@@ -19,11 +19,8 @@
         </ul>
       </li>
       <li><router-link to="/about">Über uns</router-link></li>
-      <li><router-link to="/">Kontakt</router-link></li>
+      <li><router-link to="/gaestebuch">Gästebuch</router-link></li>
     </ul>
-    <!-- <div>
-      <input type="text" class="search rounded-1" placeholder="Suche..." />
-    </div> -->
   </nav>
 </template>
 
