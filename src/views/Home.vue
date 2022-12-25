@@ -1,20 +1,23 @@
 <template>
   <section class="welcome flex align-center">
-    <div class="logo">
-      <!-- <img src="../assets/big-img.jpg" alt="LOGO" /> -->
-    </div>
+    <div class="logo"></div>
     <div class="welcome__content">
       <div class="main-heading">
         <h1>Herzlich Willkommen!</h1>
-        <h2>Guido Geisens Umwelt Edutainment</h2>
       </div>
-      <div class="txt flex">
-        <p class="main-text">
-          Alles, was Natur an Gutem schenken kann, schenkt sie uns in Fülle. Und
-          dazu die Begabung, all das zu genießen! (indianische Weisheit)
-        </p>
-        <!-- <div class="worm"><img src="../assets/wurm.png" alt="" /></div> -->
+      <div class="sub-heading flex">
+        <div class="heading-des">
+          <h2>
+            Guido Geisens <br />
+            Lumbricus Umwelt Edutainment
+          </h2>
+          <p class="small">Umweltbildung natürlich!</p>
+        </div>
+        <div class="worm"><img src="../assets/wurm.png" alt="" /></div>
       </div>
+      <q>
+        Das Leben in der Natur gibt die Wahrheit der Dinge zu erkennen (A.Dürer)
+      </q>
 
       <div class="flex g-2 justify-center buttons">
         <Button title="Unser Angebot" @click="scrollToOffering" />
@@ -194,21 +197,47 @@ export default {
   &__content {
     text-align: center;
     flex-basis: 60%;
-    margin-bottom: 7rem;
     color: $clr-text-500;
+    height: 100%;
+    padding: 1rem;
+  }
+  h2 {
+    font-size: $fs-800;
+    font-weight: 300;
+    color: $clr-text-400;
+    line-height: 1.4;
   }
   p {
+    margin-top: 1rem;
     opacity: 0.7;
-    padding: 3rem;
+  }
+  q {
+    display: block;
+    font-style: italic;
+    font-size: $fs-450;
+    font-weight: 300;
+    opacity: 0.7;
+    margin-block: 4rem;
   }
   .list {
     text-align: left;
     margin-left: 6rem;
   }
+  .sub-heading {
+    margin-top: 2rem;
+  }
+  .heading-des {
+    flex-basis: 80%;
+  }
   .worm {
     width: 40%;
+    max-width: 200px;
     aspect-ratio: 1;
+    flex-basis: 20%;
   }
+}
+
+.sub-heading {
 }
 .right-img {
   width: 100vw;
@@ -216,11 +245,13 @@ export default {
   background-attachment: fixed;
   background-image: url(../assets/DSCN6253.jpg);
   background-size: cover;
-  // aspect-ratio: 4/3;
-  // clip-path: circle(40.8% at 100% 49%);
   img {
     object-fit: cover;
   }
+}
+
+.small {
+  font-size: 1.3rem;
 }
 
 .section-heading {
@@ -233,10 +264,6 @@ export default {
     font-size: 2rem;
     font-weight: 400;
   }
-}
-
-.main-text {
-  font-size: 1.2rem;
 }
 
 .list {
@@ -323,7 +350,7 @@ export default {
 }
 
 .buttons {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 @media only screen and(min-width: 1800px) {

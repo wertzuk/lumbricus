@@ -14,8 +14,6 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap');
-// @import url('//db.onlinewebfonts.com/c/d0ae96cdbc43eb013ecbe320aed05d6a?family=Alwyn+New');
-// @import url('//db.onlinewebfonts.com/c/d84d21edd74ed51d716b01a48b817b40?family=Alwyn+New');
 @import './scss/reset';
 @import './scss/utiltities';
 @import './scss/vars';

@@ -17,10 +17,12 @@ export default {
 @import '../scss/vars';
 .btn {
   padding: 0.4em 1.1em;
-  min-width: 250px;
+  min-width: 350px;
   font-size: $fs-500;
   color: $clr-text-400;
   background: $clr-beige;
+  // letter-spacing: 1px;
+  // text-transform: uppercase;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.2s;
   border-radius: 8px;

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1 class="section-heading">Vortragsveranstaltungen</h1>
+    <h1 class="section-heading">Lesungen</h1>
   </header>
   <main>
     <div class="top">
@@ -93,6 +93,7 @@ h1 {
 .image-container {
   flex-basis: 40%;
   padding: 2rem;
+  height: 80vh;
 }
 .text-container {
   flex-basis: 50%;
