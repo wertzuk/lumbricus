@@ -7,9 +7,7 @@
         <img src="../assets/icons/icon-arrow.svg" alt="" class="icon-down" />
         <ul class="program" :class="{ hidden: !listActive }">
           <li>
-            <router-link to="/vortragsveranstaltungen"
-              >Vortragsveranstaltungen</router-link
-            >
+            <router-link to="/lesungen">Lesungen</router-link>
           </li>
           <li><router-link to="/erlebniskurse">Erlebniskurse</router-link></li>
           <li><router-link to="/wanderungen">Wanderungen</router-link></li>

@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import Vortragsveranstaltungen from '../views/Vortragsveranstaltungen.vue';
+import Lesungen from '../views/Lesungen.vue';
 import Erlebniskurse from '../views/Erlebniskurse.vue';
 import Wanderungen from '../views/Wanderungen.vue';
 import Geburtstage from '../views/Waldgeburtstage.vue';
@@ -14,9 +14,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/vortragsveranstaltungen',
-    name: 'Vortragsveranstaltungen',
-    component: Vortragsveranstaltungen,
+    path: '/lesungen',
+    name: 'Lesungen',
+    component: Lesungen,
   },
   {
     path: '/erlebniskurse',
