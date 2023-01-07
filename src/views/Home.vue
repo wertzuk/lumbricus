@@ -84,16 +84,6 @@
         >Neue Veranstaltung erstellen</router-link
       >
     </div>
-    <div class="months flex g-2 align-center">
-      <span>FILTER</span>
-      <button class="btn btn-month" @click="showPassed">
-        Vergangene Veranstaltungen
-      </button>
-      <button class="btn btn-month" @click="showUpcoming">
-        Nächste Veranstaltungen
-      </button>
-      <button class="btn btn-month" @click="clearFilter">Clear</button>
-    </div>
     <ul class="event-list">
       <li v-for="post in filtered" :key="post.id">
         <Event
@@ -116,7 +106,7 @@
 import Event from '@/components/Event.vue';
 import { useStore } from 'vuex';
 import { computed, onMounted, reactive, ref } from 'vue';
-import Button from '../components/Button.vue';
+import Button from '@/components/Button.vue';
 
 export default {
   name: 'Home',
@@ -125,6 +115,7 @@ export default {
     const store = useStore();
     const offering = ref(null);
     const events = ref(null);
+    const modal = ref(null);
 
     function scrollToElement() {
       if (events.value) {
@@ -172,6 +163,7 @@ export default {
       showPassed,
       showUpcoming,
       clearFilter,
+      modal,
     };
   },
 };

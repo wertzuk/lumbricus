@@ -11,20 +11,30 @@
       </div>
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
-    <button class="sign-in btn">Zur Anmeldung</button>
+    <button class="sign-in btn" @click="showDialog">Zur Anmeldung</button>
   </div>
+  <dialog class="dialog" ref="dialog">
+    <Form />
+  </dialog>
 </template>
 
 <script>
 import { ref } from 'vue';
 import { transformDates } from '@/utils/utils';
+import Form from '@/components/Form.vue';
 
 export default {
   props: ['title', 'startDate', 'endDate', 'detailHTML'],
+  components: { Form },
   setup(props) {
+    const dialog = ref(null);
     const active = ref(false);
     function toggleActive() {
       active.value = !active.value;
+    }
+
+    function showDialog() {
+      dialog.value.showModal();
     }
 
     const startDate = new Date(props.startDate);
@@ -36,6 +46,8 @@ export default {
       toggleActive,
       active,
       dateStr,
+      dialog,
+      showDialog,
     };
   },
 };
@@ -95,5 +107,21 @@ export default {
   &:hover {
     background: rgba(0, 0, 0, 0.1);
   }
+}
+.dialog {
+  position: fixed;
+  border: none;
+  inset: 0;
+  background: white;
+  padding: 1rem 4rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
 }
 </style>

@@ -13,7 +13,7 @@
 <script>
 /* eslint-disable */
 
-import { onBeforeUnmount, onMounted, reactive, ref } from 'vue';
+import { onMounted, onBeforeUnmount, onUnmounted, reactive, ref } from 'vue';
 import CarouselItem from './CarouselItem.vue';
 
 export default {
@@ -27,14 +27,15 @@ export default {
     const SLIDE_DURATION = 4000;
     let slideIntervall = reactive(null);
     const currentSlide = ref(0);
-    onMounted(() => {
-      slideIntervall = setInterval(() => {
-        currentSlide.value += 1;
-        if (currentSlide.value === props.images.length) {
-          currentSlide.value = 0;
-        }
-      }, SLIDE_DURATION);
-    });
+    // onMounted(() => {
+    slideIntervall = setInterval(() => {
+      currentSlide.value += 1;
+      if (currentSlide.value === props.images.length) {
+        currentSlide.value = 0;
+      }
+      console.log(currentSlide.value);
+    }, SLIDE_DURATION);
+    // });
 
     onBeforeUnmount(() => {
       clearTimeout(slideIntervall);
