@@ -8,3 +8,4 @@
 [] Eigener Menüpunkt
 [] Einfach nur Textfeld als Eingabemöglichkeit
 [] Impressum und Links in Footer
+[] Zeitstrahl bei den Events
