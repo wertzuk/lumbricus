@@ -118,4 +118,8 @@ h1 {
     margin-bottom: 1em;
   }
 }
+
+li {
+  list-style: disc;
+}
 </style>

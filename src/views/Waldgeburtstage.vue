@@ -164,6 +164,9 @@ h1 {
   padding: 2rem;
   height: 80vh;
 }
+li {
+  list-style: decimal;
+}
 .text-container {
   flex-basis: 50%;
   padding: 2rem;

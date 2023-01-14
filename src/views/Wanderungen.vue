@@ -1,8 +1,12 @@
 <template>
-  Wanderungen
-  <Carousel />
-  <main>
-    <div class="entry-content">
+  <header>
+    <h1 class="section-heading">Wanderungen</h1>
+  </header>
+  <main class="flex">
+    <div class="image-container">
+      <Carousel :images="sources1" />
+    </div>
+    <div class="text-container">
       <p>
         Unsere Wanderungen bieten nicht nur viele naturkundliche Informationen,
         sie sind auch literarisch begleitet und bieten so einen „Mehrwert“ an
@@ -66,13 +70,57 @@
 </template>
 
 <script>
+import { useStore } from 'vuex';
+import { transformDates } from '@/utils/utils';
 import Carousel from '@/components/Carousel.vue';
 
 export default {
+  props: {
+    title: String,
+  },
   components: {
     Carousel,
+  },
+
+  setup() {
+    const store = useStore();
+    const { posts } = store.state;
+    const { imageSources } = store.state;
+    const { sources1 } = imageSources;
+    function datesToString(start, end) {
+      return transformDates(start, end);
+    }
+
+    return {
+      posts,
+      datesToString,
+      sources1,
+    };
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../scss/vars';
+h1 {
+  text-align: center;
+}
+.top {
+  display: flex;
+}
+.image-container {
+  flex-basis: 40%;
+  padding: 2rem;
+  height: 80vh;
+}
+
+.text-container {
+  flex-basis: 50%;
+  padding: 2rem;
+  font-size: $fs-400;
+  color: $clr-text-400;
+  p {
+    margin-bottom: 1em;
+  }
+}
+</style>
