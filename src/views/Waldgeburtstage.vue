@@ -4,9 +4,6 @@
   </header>
   <main>
     <div class="top">
-      <div class="image-container">
-        <Carousel :images="sources1" />
-      </div>
       <div class="text-container">
         <p>
           Ein Geburtstag sollte ein besonderer Tag sein. Mit der gesamten
@@ -50,58 +47,121 @@
           >!
         </p>
         <p>Themen für die Kleinen, ab 5 Jahren:</p>
-        <p>
-          <strong>Fantasievolle Reise ins Reich der Zwerge</strong><br />
-          Auf der Suche nach den kleinen Wächtern des Waldes, machen wir uns
-          ganz klein und gehen auf Entdeckungstour. Zaubersprüche und allerlei
-          Rätselhaftes werden unsere Reise begleiten.
-        </p>
-        <p>
-          <strong>Fantasievolle Reise ins Reich der Elfen</strong><br />
-          Auf der Suche nach den traumhaften Wesen des Waldes, lernen wir die
-          leisen Spuren der Naturwesen lesen und tauchen ein in die bezauberte
-          Welt der Elfen und Feen.
-        </p>
-        <p>
-          <strong>Vogelhochzeit</strong><br />
-          Auf spielerische Art lernen wir das Leben der Vögel im Jahresrhythmus
-          kennen, bauen Vogelnester und üben uns im „Eierlegen“.
-        </p>
+
+        <div class="flex point">
+          <div>
+            <h3>Fantasievolle Reise ins Reich der Zwerge</h3>
+            <p>
+              Auf der Suche nach den kleinen Wächtern des Waldes, machen wir uns
+              ganz klein und gehen auf Entdeckungstour. Zaubersprüche und
+              allerlei Rätselhaftes werden unsere Reise begleiten.
+            </p>
+          </div>
+          <div class="point_image">
+            <img
+              src="../assets/geb/11897052_10208004263763535_1776424124_n.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="flex point">
+          <div>
+            <h3>Vogelhochzeit</h3>
+            <p>
+              Auf spielerische Art lernen wir das Leben der Vögel im
+              Jahresrhythmus kennen, bauen Vogelnester und üben uns im
+              „Eierlegen“.
+            </p>
+          </div>
+          <div class="point_image">
+            <img src="../assets/geb/IMG_20191019_112045.jpg" alt="" />
+          </div>
+        </div>
+
         <p>Themen für die etwas Größeren, ab 8 Jahren:</p>
-        <p>
-          <strong>Die wilden Wilderer</strong><br />
-          Verwegene Wilderer streifen durch die Wälder, immer auf der Flucht vor
-          erzürnten Jägern. Ob es ihnen gelingt sich vor den Jägern zu
-          verstecken? Leise und doch „wild“ müssen sie dabei vorgehen, immer auf
-          der Hut vor den Jägern.
-        </p>
-        <p>
-          <strong>Den Wald mit allen Sinnen erleben</strong><br />
-          Ein Programm, bei dem nicht nur unsere sieben Sinne gefordert und
-          gefördert werden. Unsinn und Wahnsinn kommen dabei auch nicht zu kurz.
-        </p>
-        <p>
-          <strong>Wassergeburtstag</strong><br />
-          Am besten an einem kleinen Fließgewässer/Bach werden wir spielerisch
-          dessen Lebewesen untersuchen, Holzschiffchen bauen und uns spannende
-          Wettrennen liefern!
-        </p>
-        <p>
-          <strong>Dämmerungsgeburtstag</strong><br />
-          Wenn der Tag allmählich der dunklen Nacht weicht, ist der Wald
-          besonders spannend. Mit einsetzender Dämmerung mit dem Wald
-          verschmelzen, seine Besonderheiten zu diesen Stunden kennen lernen.
-          Gerne auch mit anschließender Fackelwanderung (Fackeln sind im Preis
-          nicht inbegriffen)!
-        </p>
-        <p>
-          <strong>Fledermausgeburtstag</strong><br />
-          Ausgestattet mit einem Fledermaus-Detektor und anderen Hilfsmitteln
-          lernen wir die Welt der leisen Flieger kennen und verwandeln uns
-          selbst in solche!
-        </p>
-        <p><strong>Neu im Programm:</strong></p>
-        <p><strong>Waldgeburtstage für Erwachsene</strong></p>
+        <div class="flex point">
+          <div>
+            <h3>Die wilden Wilderer</h3>
+            <p>
+              Verwegene Wilderer streifen durch die Wälder, immer auf der Flucht
+              vor erzürnten Jägern. Ob es ihnen gelingt sich vor den Jägern zu
+              verstecken? Leise und doch „wild“ müssen sie dabei vorgehen, immer
+              auf der Hut vor den Jägern.
+            </p>
+          </div>
+          <div class="point_image">
+            <img
+              src="../assets/geb/11930739_10208004261243472_491066750_n.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="flex point justify-between">
+          <div>
+            <h3>Den Wald mit allen Sinnen erleben</h3>
+            <p>
+              Ein Programm, bei dem nicht nur unsere sieben Sinne gefordert und
+              gefördert werden. Unsinn und Wahnsinn kommen dabei auch nicht zu
+              kurz.
+            </p>
+          </div>
+          <div class="point_image">
+            <img src="../assets/geb/P8070029.jpg" alt="" />
+          </div>
+        </div>
+
+        <div class="flex point">
+          <div>
+            <h3>Wassergeburtstag</h3>
+            <p>
+              Am besten an einem kleinen Fließgewässer/Bach werden wir
+              spielerisch dessen Lebewesen untersuchen, Holzschiffchen bauen und
+              uns spannende Wettrennen liefern!
+            </p>
+          </div>
+          <div class="point_image">
+            <img src="../assets/geb/P8070004.jpg" alt="" />
+          </div>
+        </div>
+
+        <div class="flex point">
+          <div>
+            <h3>Dämmerungsgeburtstag</h3>
+            <p>
+              Wenn der Tag allmählich der dunklen Nacht weicht, ist der Wald
+              besonders spannend. Mit einsetzender Dämmerung mit dem Wald
+              verschmelzen, seine Besonderheiten zu diesen Stunden kennen
+              lernen. Gerne auch mit anschließender Fackelwanderung (Fackeln
+              sind im Preis nicht inbegriffen)!
+            </p>
+          </div>
+          <div class="point_image">
+            <img src="../assets/geb/IMG_1056.jpg" alt="" />
+          </div>
+        </div>
+
+        <div class="flex point">
+          <div>
+            <h3>Fledermausgeburtstag</h3>
+            <p>
+              Ausgestattet mit einem Fledermaus-Detektor und anderen
+              Hilfsmitteln lernen wir die Welt der leisen Flieger kennen und
+              verwandeln uns selbst in solche!
+            </p>
+          </div>
+          <div class="point_image">
+            <img
+              src="../assets/geb/11930739_10208004261243472_491066750_n.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <i>Neu im Programm:</i>
+        <div>
+          <h3>Waldgeburtstage für Erwachsene</h3>
+        </div>
+
         <p>
           Sie sind eingeladen zu einer Geburtstagsfeier, haben aber noch nicht
           das passende Geschenk gefunden? Wie wär es mit einem Waldgeburtstag
@@ -122,14 +182,10 @@
 <script>
 import { useStore } from 'vuex';
 import { transformDates } from '@/utils/utils';
-import Carousel from '@/components/Carousel.vue';
 
 export default {
   props: {
     title: String,
-  },
-  components: {
-    Carousel,
   },
 
   setup() {
@@ -159,21 +215,45 @@ h1 {
 .top {
   display: flex;
 }
-.image-container {
-  flex-basis: 40%;
-  padding: 2rem;
-  height: 80vh;
-}
-li {
-  list-style: decimal;
-}
+
 .text-container {
-  flex-basis: 50%;
+  width: 80%;
   padding: 2rem;
   font-size: $fs-400;
   color: $clr-text-400;
+  margin-inline: auto;
   p {
     margin-bottom: 1em;
+  }
+}
+
+.point {
+  // padding: 1rem 2rem;
+  background: hsl(55, 60%, 88%);
+  margin-block: 1rem;
+  border-radius: 1rem;
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.2);
+  max-height: 180px;
+  overflow: hidden;
+  p,
+  h3 {
+    padding: 0;
+  }
+
+  div:first-child {
+    flex-basis: 70%;
+    padding: 1rem 2rem;
+  }
+  .point_image {
+    flex-basis: 30%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  img {
+    width: 300px;
+    aspect-ratio: 3/2;
+    min-height: 100%;
+    object-fit: cover;
   }
 }
 </style>
