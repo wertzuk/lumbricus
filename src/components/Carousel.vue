@@ -27,7 +27,6 @@ export default {
     const SLIDE_DURATION = 4000;
     let slideIntervall = reactive(null);
     const currentSlide = ref(0);
-    // onMounted(() => {
     slideIntervall = setInterval(() => {
       currentSlide.value += 1;
       if (currentSlide.value === props.images.length) {
@@ -35,7 +34,6 @@ export default {
       }
       console.log(currentSlide.value);
     }, SLIDE_DURATION);
-    // });
 
     onBeforeUnmount(() => {
       clearTimeout(slideIntervall);

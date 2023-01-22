@@ -4,7 +4,7 @@
   </header>
   <main class="flex">
     <div class="image-container">
-      <Carousel :images="sources1" />
+      <Carousel :images="sources3" />
     </div>
     <div class="text-container">
       <p>
@@ -86,7 +86,7 @@ export default {
     const store = useStore();
     const { posts } = store.state;
     const { imageSources } = store.state;
-    const { sources1 } = imageSources;
+    const { sources3 } = imageSources;
     function datesToString(start, end) {
       return transformDates(start, end);
     }
@@ -94,7 +94,7 @@ export default {
     return {
       posts,
       datesToString,
-      sources1,
+      sources3,
     };
   },
 };
