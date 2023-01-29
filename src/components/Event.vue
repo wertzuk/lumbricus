@@ -98,14 +98,15 @@ export default {
 
 .sign-in {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+  right: 1rem;
+  bottom: 1rem;
+  border: 2px solid black;
+  border-radius: 1rem 0;
   padding: 1rem;
+  background: $clr-beige;
   transition: all 0.2s;
   &:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: $clr-event-bg;
   }
 }
 .dialog {

@@ -298,8 +298,11 @@ export default {
       text-align: center;
       text-transform: uppercase;
       font-size: $fs-400;
-      color: white;
+      color: $clr-beige;
+      font-weight: 500;
+      letter-spacing: 1.5px;
       background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
       align-items: flex-end;
