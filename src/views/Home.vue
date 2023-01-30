@@ -84,16 +84,20 @@
         >Neue Veranstaltung erstellen</router-link
       >
     </div>
+    <!-- <button @click="store.getters.filterByMonth()">filter</button> -->
     <ul class="event-list">
-      <li v-for="post in filtered" :key="post.id">
+      <li
+        v-for="event in store.getters.filterByMonth(upcoming)"
+        :key="event.id"
+      >
         <Event
-          :title="post.title"
-          :startDate="post.dateStart"
-          :endDate="post.dateEnd"
-          :detailHTML="post.content"
+          :title="event.title"
+          :startDate="event.dateStart"
+          :endDate="event.dateEnd"
+          :detailHTML="event.content"
         />
       </li>
-      <span v-if="posts.length === 0"
+      <span v-if="store.state.events.length === 0"
         >Keine Veranstaltungen in diesem Monat!</span
       >
     </ul>
@@ -104,18 +108,19 @@
 /* eslint-disable */
 
 import Event from '@/components/Event.vue';
-import { useStore } from 'vuex';
-import { computed, onMounted, reactive, ref } from 'vue';
+import { onMounted, ref, inject, reactive } from 'vue';
 import Button from '@/components/Button.vue';
 
 export default {
   name: 'Home',
   components: { Event, Button },
   setup() {
-    const store = useStore();
+    const store = inject('store');
     const offering = ref(null);
     const events = ref(null);
     const modal = ref(null);
+
+    const upcoming = ref(true);
 
     function scrollToElement() {
       if (events.value) {
@@ -129,41 +134,18 @@ export default {
       }
     }
 
-    onMounted(() => {
-      store.dispatch('getPosts');
+    onMounted(async () => {
+      await store.methods.getEvents();
     });
 
-    const posts = computed(() => store.state.posts);
-    let filtered = reactive(null);
-    filtered = posts;
-
-    // filtered = posts;
-
-    function showPassed() {
-      filtered = store.getters.filterPassed;
-      console.log(filtered);
-    }
-
-    function showUpcoming() {
-      filtered = store.getters.filterUpcoming;
-      console.log(filtered);
-    }
-    function clearFilter() {
-      filtered = store.state.posts;
-      filtered = null;
-    }
-
     return {
-      posts,
+      store,
       scrollToElement,
       scrollToOffering,
       offering,
       events,
-      filtered,
-      showPassed,
-      showUpcoming,
-      clearFilter,
       modal,
+      upcoming,
     };
   },
 };

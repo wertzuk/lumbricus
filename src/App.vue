@@ -5,10 +5,15 @@
 
 <script>
 import Header from '@/components/Header.vue';
+import { provide } from 'vue';
+import store from '@/store';
 
 export default {
   name: 'Home',
   components: { Header },
+  setup() {
+    provide('store', store);
+  },
 };
 </script>
 
