@@ -26,84 +26,64 @@
     <button class="btn" @click.prevent="submit">Veranstaltung erstellen</button>
   </form>
   <div class="dialog1" v-if="success">Erfolgreich erstellt</div>
-  <!-- <Popup title="blabal" isSuccess /> -->
 </template>
 
-<script>
+<script setup>
 import { useStore } from 'vuex';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@vueup/vue-quill/dist/vue-quill.bubble.css';
 import { QuillEditor } from '@vueup/vue-quill';
-// import Popup from '@/components/Popup.vue';
 
-export default {
-  components: {
-    QuillEditor,
-  },
-  setup() {
-    const editor = ref(null);
-    const content = ref('');
-    const dateStart = ref('');
-    const dateEnd = ref('');
-    const title = ref('');
-    const success = ref(false);
-    const router = useRouter();
+const editor = ref(null);
+const content = ref('');
+const dateStart = ref('');
+const dateEnd = ref('');
+const title = ref('');
+const success = ref(false);
+const router = useRouter();
 
-    const dialog = ref(null);
+const dialog = ref(null);
 
-    const store = useStore();
-    let quillEditor = null;
+const store = useStore();
+let quillEditor = null;
 
-    function start(quill) {
-      quillEditor = quill;
-      editor.value = quill;
-      console.log(quillEditor);
-    }
+function start(quill) {
+  quillEditor = quill;
+  editor.value = quill;
+  console.log(quillEditor);
+}
 
-    async function submit() {
-      console.log(dialog.value);
+async function submit() {
+  console.log(dialog.value);
 
-      const post = {
-        title: title.value,
-        dateStart: dateStart.value,
-        dateEnd: dateEnd.value,
-        content: content.value,
-      };
-      const response = await fetch(
-        'http://localhost/lumbricus/server/api/posts.php',
-        {
-          method: 'POST',
-          body: JSON.stringify(post),
-        },
-      );
-      if (response.ok) {
-        success.value = true;
-        alert('Erstellt');
-        router.push('/');
-      }
+  const post = {
+    title: title.value,
+    dateStart: dateStart.value,
+    dateEnd: dateEnd.value,
+    content: content.value,
+  };
+  const response = await fetch(
+    'http://localhost/lumbricus/server/api/posts.php',
+    {
+      method: 'POST',
+      body: JSON.stringify(post),
+    },
+  );
+  if (response.ok) {
+    success.value = true;
+    alert('Erstellt');
+    router.push('/');
+  }
 
-      store.state.posts.push(post);
-      title.value = '';
-      dateStart.value = '';
-      dateEnd.value = '';
-      content.value = '';
-      quillEditor.setContents([{ insert: '\n' }]);
-    }
-
-    return {
-      submit,
-      start,
-      content,
-      title,
-      dateStart,
-      dateEnd,
-      dialog,
-      success,
-    };
-  },
-};
+  store.state.posts.push(post);
+  title.value = '';
+  dateStart.value = '';
+  dateEnd.value = '';
+  content.value = '';
+  quillEditor.setContents([{ insert: '\n' }]);
+}
 </script>
 
 <style lang="scss" scoped>

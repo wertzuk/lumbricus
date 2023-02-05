@@ -2,15 +2,12 @@
   <button class="btn">{{ title }}</button>
 </template>
 
-<script>
-export default {
-  props: {
-    title: String,
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
   },
-  setup(props) {
-    console.log(props.title);
-  },
-};
+});
 </script>
 
 <style lang="scss" scoped>
@@ -21,8 +18,6 @@ export default {
   font-size: $fs-500;
   color: $clr-text-400;
   background: $clr-beige;
-  // letter-spacing: 1px;
-  // text-transform: uppercase;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   transition: all 0.2s;
   border-radius: 8px;

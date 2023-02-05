@@ -104,51 +104,33 @@
   </section>
 </template>
 
-<script>
-/* eslint-disable */
-
+<script setup>
 import Event from '@/components/Event.vue';
-import { onMounted, ref, inject, reactive } from 'vue';
 import Button from '@/components/Button.vue';
+import { onMounted, ref, inject } from 'vue';
 
-export default {
-  name: 'Home',
-  components: { Event, Button },
-  setup() {
-    const store = inject('store');
-    const offering = ref(null);
-    const events = ref(null);
-    const modal = ref(null);
+const store = inject('store');
+const offering = ref(null);
+const events = ref(null);
+const modal = ref(null);
 
-    const upcoming = ref(true);
+const upcoming = ref(true);
 
-    function scrollToElement() {
-      if (events.value) {
-        events.value.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+function scrollToElement() {
+  if (events.value) {
+    events.value.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
-    function scrollToOffering() {
-      if (offering.value) {
-        offering.value.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
+function scrollToOffering() {
+  if (offering.value) {
+    offering.value.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
-    onMounted(async () => {
-      await store.methods.getEvents();
-    });
-
-    return {
-      store,
-      scrollToElement,
-      scrollToOffering,
-      offering,
-      events,
-      modal,
-      upcoming,
-    };
-  },
-};
+onMounted(async () => {
+  await store.methods.getEvents();
+});
 </script>
 
 <style lang="scss" scoped>

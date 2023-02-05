@@ -50,35 +50,14 @@
   </main>
 </template>
 
-<script>
+<script setup>
 import { useStore } from 'vuex';
-import { transformDates } from '@/utils/utils';
 import Carousel from '@/components/Carousel.vue';
 
-export default {
-  props: {
-    title: String,
-  },
-  components: {
-    Carousel,
-  },
-
-  setup() {
-    const store = useStore();
-    const { posts } = store.state;
-    const { imageSources } = store.state;
-    const { sources1 } = imageSources;
-    function datesToString(start, end) {
-      return transformDates(start, end);
-    }
-
-    return {
-      posts,
-      datesToString,
-      sources1,
-    };
-  },
-};
+const store = useStore();
+const { posts } = store.state;
+const { imageSources } = store.state;
+const { sources1 } = imageSources;
 </script>
 
 <style lang="scss" scoped>
