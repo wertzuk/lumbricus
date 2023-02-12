@@ -14,43 +14,52 @@
     <button class="sign-in btn" @click="showDialog">Zur Anmeldung</button>
   </div>
   <dialog class="dialog" ref="dialog">
+    <header class="flex">
+      <h2>{{ title }}</h2>
+      <img src="../assets/icons/icon_close.svg" alt="" @click="closeDialog" />
+    </header>
     <Form />
   </dialog>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref, inject, defineExpose } from 'vue';
 import { transformDates } from '@/utils/utils';
 import Form from '@/components/Form.vue';
 
-export default {
-  props: ['title', 'startDate', 'endDate', 'detailHTML'],
-  components: { Form },
-  setup(props) {
-    const dialog = ref(null);
-    const active = ref(false);
-    function toggleActive() {
-      active.value = !active.value;
-    }
-
-    function showDialog() {
-      dialog.value.showModal();
-    }
-
-    const startDate = new Date(props.startDate);
-    const endDate = new Date(props.endDate);
-
-    const dateStr = transformDates(startDate, endDate);
-
-    return {
-      toggleActive,
-      active,
-      dateStr,
-      dialog,
-      showDialog,
-    };
+const props = defineProps({
+  title: {
+    type: String,
   },
-};
+  startDate: {
+    type: String,
+  },
+  endDate: {
+    type: String,
+  },
+  detailHTML: {
+    type: String,
+  },
+});
+const store = inject('store');
+const dialog = ref(null);
+const active = ref(false);
+function toggleActive() {
+  active.value = !active.value;
+}
+
+function showDialog() {
+  dialog.value.showModal();
+}
+function closeDialog() {
+  dialog.value.close();
+}
+
+const startDate = new Date(props.startDate);
+const endDate = new Date(props.endDate);
+
+const dateStr = transformDates(startDate, endDate);
+defineExpose({ dialog });
 </script>
 
 <style lang="scss" scoped>
@@ -110,16 +119,34 @@ export default {
   }
 }
 .dialog {
+  padding-block: 1.5rem;
   position: fixed;
   border: none;
   inset: 0;
   background: white;
-  padding: 1rem 4rem;
+  // padding: 1rem 4rem;
   border-radius: 1rem;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow-x: hidden;
+
+  h2 {
+    text-align: center;
+    font-weight: 300;
+    font-size: $fs-500;
+  }
+  img {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+}
+
+header {
+  margin-inline: 10%;
 }
 
 .dialog::backdrop {
