@@ -84,7 +84,6 @@
         >Neue Veranstaltung erstellen</router-link
       >
     </div>
-    <!-- <button @click="store.getters.filterByMonth()">filter</button> -->
     <ul class="event-list">
       <li
         v-for="event in store.getters.filterByMonth(upcoming)"

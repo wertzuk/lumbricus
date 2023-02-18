@@ -9,19 +9,28 @@
     </header>
     <Form />
   </div>
-  <div class="backdrop" v-if="store.state.modal.active"></div>
+  <div
+    class="backdrop"
+    v-if="store.state.modal.active"
+    @click="closeModal"
+  ></div>
 </template>
 
 <script setup>
 import Form from '@/components/Form.vue';
 import { computed, inject, onMounted, ref } from 'vue';
 
-const dialog = ref(null);
 const store = inject('store');
-let { active, title } = store.state.modal;
 function closeModal() {
   store.state.modal.active = false;
+  document.body.style.overflowY = 'auto';
 }
+
+// document.body.addEventListener('click', (e) => {
+//   e.stopPropagation();
+//   console.log(e.target);
+//   closeModal();
+// });
 </script>
 
 <style lang="scss" scoped>
@@ -31,7 +40,6 @@ function closeModal() {
   padding-block: 1.5rem;
   position: fixed;
   border: none;
-  inset: 0;
   background: white;
   border-radius: 1rem;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);

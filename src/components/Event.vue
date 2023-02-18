@@ -47,9 +47,7 @@ function showDialog() {
   modal.title = props.title;
   modal.active = true;
   store.state.modalActive = true;
-}
-function closeDialog() {
-  dialog.value.close();
+  document.body.style.overflowY = 'hidden';
 }
 
 const startDate = new Date(props.startDate);
