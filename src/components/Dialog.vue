@@ -1,21 +1,27 @@
 <template>
-  <header class="flex">
-    <h2>{{ title }}</h2>
-    <img src="../assets/icons/icon_close.svg" alt="" @click="toggleActive" />
-  </header>
-  <Form />
+  <div class="dialog" ref="dialog" v-if="store.state.modal.active">
+    <header class="flex">
+      <div>
+        <p>Anmeldung zur Veranstaltung</p>
+        <h2>{{ store.state.modal.title }}</h2>
+      </div>
+      <img src="../assets/icons/icon_close.svg" alt="" @click="closeModal" />
+    </header>
+    <Form />
+  </div>
+  <div class="backdrop" v-if="store.state.modal.active"></div>
 </template>
 
 <script setup>
 import Form from '@/components/Form.vue';
-import { inject } from 'vue';
+import { computed, inject, onMounted, ref } from 'vue';
 
+const dialog = ref(null);
 const store = inject('store');
-const props = defineProps({
-  title: {
-    type: String,
-  },
-});
+let { active, title } = store.state.modal;
+function closeModal() {
+  store.state.modal.active = false;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -27,13 +33,13 @@ const props = defineProps({
   border: none;
   inset: 0;
   background: white;
-  // padding: 1rem 4rem;
   border-radius: 1rem;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow-x: hidden;
+  z-index: 10;
 
   h2 {
     text-align: center;
@@ -50,9 +56,16 @@ const props = defineProps({
 
 header {
   margin-inline: 10%;
+  text-align: center;
+  p {
+    font-weight: 300;
+  }
 }
 
-.dialog::backdrop {
+.backdrop {
+  content: '';
   background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  inset: 0;
 }
 </style>

@@ -91,6 +91,7 @@
         :key="event.id"
       >
         <Event
+          :eventId="event.id"
           :title="event.title"
           :startDate="event.dateStart"
           :endDate="event.dateEnd"
@@ -102,17 +103,18 @@
       >
     </ul>
   </section>
+  <Dialog />
 </template>
 
 <script setup>
 import Event from '@/components/Event.vue';
 import Button from '@/components/Button.vue';
+import Dialog from '@/components/Dialog.vue';
 import { onMounted, ref, inject } from 'vue';
 
 const store = inject('store');
 const offering = ref(null);
 const events = ref(null);
-const modal = ref(null);
 
 const upcoming = ref(true);
 

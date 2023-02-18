@@ -26,6 +26,11 @@ const state = reactive({
     ],
     sources4: ['slide-1.jpg', 'slide-2.jpg', 'slide-3.jpg'],
   },
+  modal: {
+    id: 0,
+    title: 'test',
+    active: false,
+  },
   modalActive: false,
 });
 
