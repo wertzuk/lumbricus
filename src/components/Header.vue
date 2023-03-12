@@ -34,4 +34,11 @@ export default {
   }
   // border-bottom: $border-nav;
 }
+
+@media only screen and(max-width: 800px) {
+  .header {
+    &__logo {
+    }
+  }
+}
 </style>

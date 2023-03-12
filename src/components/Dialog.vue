@@ -25,12 +25,6 @@ function closeModal() {
   store.state.modal.active = false;
   document.body.style.overflowY = 'auto';
 }
-
-// document.body.addEventListener('click', (e) => {
-//   e.stopPropagation();
-//   console.log(e.target);
-//   closeModal();
-// });
 </script>
 
 <style lang="scss" scoped>

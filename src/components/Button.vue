@@ -25,4 +25,11 @@ const props = defineProps({
     background: rgb(213, 245, 213);
   }
 }
+
+@media only screen and(max-width: 800px) {
+  .btn {
+    min-width: 100px;
+    font-size: $fs-400;
+  }
+}
 </style>

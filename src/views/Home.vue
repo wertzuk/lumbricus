@@ -44,19 +44,14 @@
       </div>
       <div>
         <span>Vortragsveranstaltungen</span
-        ><img src="../assets/lesung3.jpg" alt="" />
+        ><img src="../assets/lesung2.jpg" alt="" />
       </div>
       <div>
         <span>Walderlebnistage</span
         ><img src="../assets/erlebnis2.jpg" alt="" />
       </div>
-      <!-- <div>
-        <span>Waldgeburtstage (für groß und klein)</span
-        ><img src="../assets/waldgeb.jpg" alt="" />
-      </div>
-        -->
       <div>
-        <span>Ferienprogramme/Nachmittagsbetreuung</span
+        <span>Ferienprogramme / Nachmittagsbetreuung</span
         ><img src="../assets/ferien.jpg" alt="" />
       </div>
       <div>
@@ -67,13 +62,9 @@
         <span> umweltbezogene Unterrichtsbegleitung </span
         ><img src="../assets/betreuung.jpg" alt="" />
       </div>
-      <!-- <div>
-        <span>naturbezogene Kinder-Workshops</span
-        ><img src="../assets/lesung.jpg" alt="" />
-      </div> -->
       <div>
         <span>Lesungen zu allen Anlässen</span
-        ><img src="../assets/lesung2.jpg" alt="" />
+        ><img src="../assets/lesung3.jpg" alt="" />
       </div>
     </div>
   </div>
@@ -145,7 +136,6 @@ onMounted(async () => {
     flex-basis: 35%;
     height: 100%;
     background-image: url(../assets/big-img.jpg);
-    // background-image: url(../assets/wurm_neu.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: right;
@@ -194,8 +184,6 @@ onMounted(async () => {
   }
 }
 
-.sub-heading {
-}
 .right-img {
   width: 100vw;
   height: 50vh;
@@ -246,10 +234,8 @@ onMounted(async () => {
   display: grid;
   gap: 2.5rem;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  // overflow: hidden;
 
   & > div {
-    // height: 300px;
     aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
@@ -318,6 +304,75 @@ onMounted(async () => {
     .logo {
       clip-path: circle(62.7% at 25% 27%);
     }
+  }
+}
+
+@media only screen and(max-width: 800px) {
+  .welcome {
+    all: unset;
+    height: auto;
+    h1 {
+      font-size: $fs-800;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+    h2 {
+      font-size: $fs-600;
+    }
+    .logo {
+      width: 95%;
+      min-height: 300px;
+      background-position: -100px;
+    }
+    .worm {
+      width: 100px;
+      height: 100px;
+      margin: 1rem auto;
+    }
+    q {
+      font-size: $fs-400;
+      margin-block: 2rem;
+    }
+    .buttons {
+      flex-direction: column;
+    }
+  }
+  .sub-heading {
+    flex-direction: column;
+  }
+  .list {
+    margin: 6rem 0;
+    h1 {
+      font-size: $fs-600;
+      font-weight: bolder;
+      padding-inline: 0.5rem;
+    }
+  }
+  .program-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    & > div {
+      border-radius: 1rem 1rem 0 0;
+      aspect-ratio: 5/4;
+      span {
+        font-size: $fs-small;
+      }
+    }
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .events {
+    width: 100%;
+    margin-block: 5rem;
+    padding: 1rem;
+    h1 {
+      font-size: $fs-600;
+    }
+  }
+
+  .section-heading h1 {
   }
 }
 

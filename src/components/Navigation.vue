@@ -134,4 +134,10 @@ export default {
   color: $clr-text-400;
   border: 1px solid $clr-text-400;
 }
+
+@media only screen and(max-width: 800px) {
+  .nav {
+    display: none;
+  }
+}
 </style>

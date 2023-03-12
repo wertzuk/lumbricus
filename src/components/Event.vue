@@ -112,4 +112,10 @@ const dateStr = transformDates(startDate, endDate);
     background: $clr-event-bg;
   }
 }
+
+@media only screen and(max-width: 800px) {
+  .event {
+    margin-bottom: 4rem;
+  }
+}
 </style>
