@@ -32,6 +32,7 @@ const state = reactive({
     active: false,
   },
   modalActive: false,
+  menuActive: false,
 });
 
 const methods = {
