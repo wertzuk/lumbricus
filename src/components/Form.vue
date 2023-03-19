@@ -92,7 +92,7 @@ textarea {
   }
 }
 
-@media only screen and(max-width: 800px) {
+@media only screen and(max-width: $break-point) {
   .row {
     display: block;
     width: 100%;

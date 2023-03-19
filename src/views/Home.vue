@@ -307,7 +307,7 @@ onMounted(async () => {
   }
 }
 
-@media only screen and(max-width: 800px) {
+@media only screen and(max-width: $break-point) {
   .welcome {
     all: unset;
     height: auto;

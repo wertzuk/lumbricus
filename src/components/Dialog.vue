@@ -71,7 +71,7 @@ header {
   inset: 0;
 }
 
-@media only screen and(max-width: 800px) {
+@media only screen and(max-width: $break-point) {
   .dialog {
     width: 90vw;
     h2 {

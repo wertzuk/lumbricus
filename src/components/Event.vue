@@ -113,7 +113,7 @@ const dateStr = transformDates(startDate, endDate);
   }
 }
 
-@media only screen and(max-width: 800px) {
+@media only screen and(max-width: $break-point) {
   .event {
     padding-inline: 1rem;
     margin-bottom: 2rem;
