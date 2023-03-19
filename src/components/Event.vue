@@ -105,7 +105,7 @@ const dateStr = transformDates(startDate, endDate);
   bottom: 1rem;
   border: 2px solid black;
   border-radius: 1rem 0;
-  padding: 1rem;
+  padding: 1em;
   background: $clr-beige;
   transition: all 0.2s;
   &:hover {
@@ -115,7 +115,34 @@ const dateStr = transformDates(startDate, endDate);
 
 @media only screen and(max-width: 800px) {
   .event {
-    margin-bottom: 4rem;
+    padding-inline: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.9;
+
+    &__title {
+      font-size: $fs-450;
+      font-weight: 300;
+    }
+    &__date {
+      font-size: $fs-small;
+      margin: 0.5rem 0 0;
+      opacity: 1;
+      width: 100%;
+      font-weight: bolder;
+    }
+
+    &__detail {
+      margin-block: 1rem;
+      font-size: $fs-small;
+      width: 100%;
+      color: $clr-text-500;
+    }
+  }
+
+  .sign-in {
+    position: static;
+    font-size: $fs-small;
   }
 }
 </style>

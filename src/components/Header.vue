@@ -37,7 +37,9 @@ export default {
 
 @media only screen and(max-width: 800px) {
   .header {
+    padding: 0.5rem 1rem;
     &__logo {
+      font-size: $fs-600;
     }
   }
 }

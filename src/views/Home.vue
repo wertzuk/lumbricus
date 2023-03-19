@@ -348,6 +348,10 @@ onMounted(async () => {
       padding-inline: 0.5rem;
     }
   }
+
+  .new-event {
+    display: none;
+  }
   .program-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
