@@ -91,4 +91,15 @@ textarea {
     outline: none;
   }
 }
+
+@media only screen and(max-width: 800px) {
+  .row {
+    display: block;
+    width: 100%;
+    padding: 0;
+    & > * {
+      padding-bottom: 1rem;
+    }
+  }
+}
 </style>

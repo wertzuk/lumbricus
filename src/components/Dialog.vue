@@ -70,4 +70,18 @@ header {
   position: fixed;
   inset: 0;
 }
+
+@media only screen and(max-width: 800px) {
+  .dialog {
+    width: 90vw;
+    h2 {
+      font-size: $fs-450;
+    }
+    img {
+      top: 1rem;
+      right: 0.7rem;
+      transform: scale(0.7);
+    }
+  }
+}
 </style>
