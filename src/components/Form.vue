@@ -1,38 +1,44 @@
 <template>
-  <form>
+  <form @submit.prevent="submitData">
     <div class="flex row">
       <div class="flex flex-col required">
         <label for="vorname">Vorname</label>
-        <input type="text" id="vorname" required />
+        <input type="text" id="vorname" v-model="firstname" required />
       </div>
       <div class="flex flex-col required">
         <label for="nachname">Nachname</label>
-        <input type="text" id="nachname" required />
-      </div>
-    </div>
-    <div class="flex row">
-      <div class="flex flex-col">
-        <label for="adults">Anzahl Erwachsene</label>
-        <input type="number" min="0" id="adults" />
-      </div>
-      <div class="flex flex-col">
-        <label for="children">Anzahl Kinder</label>
-        <input type="number" min="0" id="children" />
+        <input type="text" id="nachname" v-model="lastname" required />
       </div>
     </div>
     <div class="flex row">
       <div class="flex flex-col required">
         <label for="email">E-Mail</label>
-        <input type="email" id="email" required />
+        <input type="email" id="email" v-model="email" required />
       </div>
       <div class="flex flex-col required">
         <label for="tel">Telefon</label>
-        <input type="tel" id="tel" required />
+        <input type="tel" id="tel" v-model="tel" required />
       </div>
     </div>
-    <div class="flex flex-col">
-      <label for="comment">Kommentar (Optional)</label>
-      <textarea id="comment" name="w3review" rows="4" cols="15"></textarea>
+    <div class="flex row">
+      <div class="flex flex-col">
+        <label for="adults">Anzahl Erwachsene</label>
+        <input type="number" min="0" id="adults" v-model="adults" />
+      </div>
+      <div class="flex flex-col">
+        <label for="children">Anzahl Kinder</label>
+        <input type="number" min="0" id="children" v-model="children" />
+      </div>
+    </div>
+    <div class="flex flex-col align-center">
+      <label for="comment">Kommentar</label>
+      <textarea
+        id="comment"
+        name="w3review"
+        rows="4"
+        cols="15"
+        v-model="comment"
+      ></textarea>
     </div>
     <div class="flex justify-center">
       <button type="submit" class="submit">Anmelden</button>
@@ -40,8 +46,44 @@
   </form>
 </template>
 
-<script>
-export default {};
+<script setup>
+import { ref, inject } from 'vue';
+const firstname = ref(null);
+const lastname = ref(null);
+const email = ref(null);
+const tel = ref(null);
+const adults = ref(null);
+const children = ref(null);
+const comment = ref(null);
+
+const store = inject('store');
+const { id } = store.state.modal;
+console.log(id);
+
+async function submitData() {
+  console.log('submitted');
+  const payload = {
+    firstname: firstname.value,
+    lastname: lastname.value,
+    email: email.value,
+    tel: tel.value,
+    adults: adults.value,
+    children: children.value,
+    comment: comment.value,
+    eventid: parseInt(id),
+  };
+  console.log(payload);
+
+  // TODO extract to separate place
+
+  const API_URL = 'https://localhost/lumbricus/server/api/signin.php';
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  };
+  const response = await fetch(API_URL, options);
+  console.log(response);
+}
 </script>
 
 <style lang="scss" scoped>
@@ -95,6 +137,7 @@ textarea {
   border: 1px solid black;
   padding: 0.5rem;
   height: 90px;
+  width: 90%;
   &:focus {
     outline: none;
   }
