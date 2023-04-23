@@ -1,35 +1,28 @@
 <template>
-  <div class="popup" :class="{ success: isSuccess }">
-    {{ title }}
-    testtest
+  <div
+    class="popup"
+    :class="{ success: store.state.success.isSuccess }"
+    v-if="store.state.success.show"
+  >
+    <h1>{{ store.state.success.message }}</h1>
   </div>
-  <div class="overlay"></div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: String,
-    isSuccess: Boolean,
-  },
-  setup(props) {
-    console.log(props.title);
-    console.log(props.isSuccess);
-  },
-};
+<script setup>
+import { inject } from 'vue';
+
+const store = inject('store');
 </script>
 
 <style lang="scss" scoped>
 .popup {
   position: fixed;
   padding: 2rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: red;
+  right: 0;
+  bottom: 100px;
+  background: whitesmoke;
 }
 
-/* .overlay {
-    inset: ;
-} */
+.popup.sucess {
+}
 </style>

@@ -58,10 +58,8 @@ const comment = ref(null);
 
 const store = inject('store');
 const { id } = store.state.modal;
-console.log(id);
 
 async function submitData() {
-  console.log('submitted');
   const payload = {
     firstname: firstname.value,
     lastname: lastname.value,
@@ -72,7 +70,6 @@ async function submitData() {
     comment: comment.value,
     eventid: parseInt(id),
   };
-  console.log(payload);
 
   // TODO extract to separate place
 
@@ -82,7 +79,12 @@ async function submitData() {
     body: JSON.stringify(payload),
   };
   const response = await fetch(API_URL, options);
-  console.log(response);
+  if (response.ok) {
+    store.methods.closeModal();
+    store.methods.displaySuccessMessage(true, 'alles gut');
+  } else {
+    const { message } = await response.json();
+  }
 }
 </script>
 

@@ -94,12 +94,14 @@
     </ul>
   </section>
   <Dialog />
+  <Popup title="test" success />
 </template>
 
 <script setup>
 import Event from '@/components/Event.vue';
 import Button from '@/components/Button.vue';
 import Dialog from '@/components/Dialog.vue';
+import Popup from '@/components/Popup.vue';
 import { onMounted, ref, inject } from 'vue';
 
 const store = inject('store');

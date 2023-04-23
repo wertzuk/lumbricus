@@ -5,26 +5,25 @@
         <p>Anmeldung zur Veranstaltung</p>
         <h2>{{ store.state.modal.title }}</h2>
       </div>
-      <img src="../assets/icons/icon_close.svg" alt="" @click="closeModal" />
+      <img
+        src="../assets/icons/icon_close.svg"
+        alt=""
+        @click="store.methods.closeModal"
+      />
     </header>
     <Form />
   </div>
   <div
     class="backdrop"
     v-if="store.state.modal.active"
-    @click="closeModal"
+    @click="store.methods.closeModal"
   ></div>
 </template>
 
 <script setup>
 import Form from '@/components/Form.vue';
 import { computed, inject, onMounted, ref } from 'vue';
-
 const store = inject('store');
-function closeModal() {
-  store.state.modal.active = false;
-  document.body.style.overflowY = 'auto';
-}
 </script>
 
 <style lang="scss" scoped>

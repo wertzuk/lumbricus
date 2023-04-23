@@ -28,11 +28,16 @@ const state = reactive({
   },
   modal: {
     id: 0,
-    title: 'test',
+    title: '',
     active: false,
   },
-  modalActive: false,
   menuActive: false,
+  showSuccessMessage: true,
+  success: {
+    show: false,
+    isSucess: false,
+    message: '',
+  },
 });
 
 const methods = {
@@ -44,7 +49,20 @@ const methods = {
     state.events = data;
   },
   toggleActive() {
-    state.modalActive = !state.modalActive;
+    state.modal.active = !state.modal.active;
+  },
+  closeModal() {
+    state.modal.active = false;
+    document.body.style.overflowY = 'auto';
+  },
+  displaySuccessMessage(success, message) {
+    state.success.show = true;
+    state.success.isSucess = success;
+    state.success.message = message;
+
+    setTimeout(() => {
+      state.success.show = false;
+    }, 3000);
   },
 };
 
