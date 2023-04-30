@@ -31,7 +31,7 @@ const state = reactive({
     title: '',
     active: false,
   },
-  menuActive: false,
+  menuActive: true,
   showSuccessMessage: true,
   success: {
     active: false,
