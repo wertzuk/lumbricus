@@ -1,5 +1,8 @@
 <template>
-  <nav class="nav flex justify-between align-center">
+  <nav
+    class="nav flex justify-between align-center"
+    v-if="store.state.menuActive"
+  >
     <ul class="flex justify-between nav__list">
       <li><router-link to="/">Home</router-link></li>
       <li @click.stop="listActive = !listActive">
@@ -24,21 +27,28 @@
   </nav>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref, inject, computed, onMounted, onUnmounted } from 'vue';
 
-export default {
-  setup() {
-    const listActive = ref(false);
-    document.body.addEventListener('click', () => {
-      listActive.value = false;
-    });
+const store = inject('store');
+const listActive = ref(false);
+document.body.addEventListener('click', () => {
+  listActive.value = false;
+});
 
-    return {
-      listActive,
-    };
-  },
-};
+function useBreakpoints() {
+  let windowWidth = ref(window.innerWidth);
+
+  const onWidthChange = () => (windowWidth.value = window.innerWidth);
+  onMounted(() => window.addEventListener('resize', onWidthChange));
+  onUnmounted(() => window.removeEventListener('resize', onWidthChange));
+
+  const width = computed(() => windowWidth.value);
+  console.log(width);
+
+  return { width };
+}
+useBreakpoints();
 </script>
 
 <style lang="scss" scoped>
@@ -137,7 +147,24 @@ export default {
 
 @media only screen and(max-width: 800px) {
   .nav {
-    display: none;
+    all: unset;
+    * {
+      all: unset;
+    }
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 100;
+    top: 67px;
+    &__list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      & > li {
+        position: relative;
+        padding: 0.5rem 1.3rem;
+      }
+    }
   }
 }
 </style>

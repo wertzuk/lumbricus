@@ -39,7 +39,6 @@ const props = defineProps({
 const store = inject('store');
 const dialog = ref(null);
 const active = ref(false);
-function toggleActive() {}
 
 function showDialog() {
   const { modal } = store.state;

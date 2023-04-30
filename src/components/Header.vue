@@ -1,7 +1,10 @@
 <template>
   <header class="header flex align-center">
     <router-link to="/" class="header__logo">Lumbricus</router-link>
-    <button class="nav-toggle">
+    <button
+      class="nav-toggle"
+      @click="store.state.menuActive = !store.state.menuActive"
+    >
       <img
         src="../assets/icons/icon-hamburger.svg"
         alt="hamburger"

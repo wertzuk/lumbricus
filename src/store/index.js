@@ -62,7 +62,7 @@ const methods = {
 
     setTimeout(() => {
       state.success.active = false;
-    }, 10000);
+    }, 3000);
   },
 };
 
