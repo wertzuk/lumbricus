@@ -34,8 +34,8 @@ const state = reactive({
   menuActive: false,
   showSuccessMessage: true,
   success: {
-    show: false,
-    isSucess: false,
+    active: false,
+    isSuccess: false,
     message: '',
   },
 });
@@ -56,13 +56,13 @@ const methods = {
     document.body.style.overflowY = 'auto';
   },
   displaySuccessMessage(success, message) {
-    state.success.show = true;
-    state.success.isSucess = success;
+    state.success.active = true;
+    state.success.isSuccess = success;
     state.success.message = message;
 
     setTimeout(() => {
-      state.success.show = false;
-    }, 3000);
+      state.success.active = false;
+    }, 10000);
   },
 };
 

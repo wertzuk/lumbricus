@@ -81,9 +81,11 @@ async function submitData() {
   const response = await fetch(API_URL, options);
   if (response.ok) {
     store.methods.closeModal();
-    store.methods.displaySuccessMessage(true, 'alles gut');
+    store.methods.displaySuccessMessage(true, 'Erfolgreich angemeldet');
   } else {
     const { message } = await response.json();
+    console.log(message);
+    store.methods.displaySuccessMessage(false, 'Anmeldung fehlgeschlagen');
   }
 }
 </script>

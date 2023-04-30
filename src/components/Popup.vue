@@ -1,10 +1,12 @@
 <template>
   <div
     class="popup"
-    :class="{ success: store.state.success.isSuccess }"
-    v-if="store.state.success.show"
+    :class="{
+      success: store.state.success.isSuccess,
+      active: store.state.success.active,
+    }"
   >
-    <h1>{{ store.state.success.message }}</h1>
+    <p>{{ store.state.success.message }}</p>
   </div>
 </template>
 
@@ -15,14 +17,28 @@ const store = inject('store');
 </script>
 
 <style lang="scss" scoped>
+@import '../scss/vars';
 .popup {
   position: fixed;
-  padding: 2rem;
+  padding: 0.7em 1.5em;
   right: 0;
   bottom: 100px;
-  background: whitesmoke;
+  background: rgb(233, 129, 129);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  font-size: $fs-400;
+  color: white;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.2s;
 }
 
-.popup.sucess {
+.popup.success {
+  background: rgb(219, 234, 198);
+  color: #645c5c;
+}
+
+.active {
+  transform: translateX(0%);
 }
 </style>
