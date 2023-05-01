@@ -1,13 +1,12 @@
 <template>
-  <header>
-    <h1 class="section-heading">Lesungen</h1>
-  </header>
+  <header></header>
   <main>
     <div class="top">
       <div class="image-container">
         <Carousel :images="sources1" />
       </div>
-      <div class="text-container">
+      <section class="text-container">
+        <h1 class="section-heading">Lesungen</h1>
         <p>
           Unsere Vortragsveranstaltungen richten sich vor allem an Obst- und
           Gartenbauvereine, Landfrauenverbände, aber natürlich auch an andere
@@ -45,7 +44,7 @@
           Vorträge können auch im Rosengarten des Umwelt- und Freizeitzentrums
           Finkenrech (bei Dirmingen) gehalten werden.
         </p>
-      </div>
+      </section>
     </div>
   </main>
 </template>
@@ -62,6 +61,7 @@ const { sources1 } = imageSources;
 
 <style lang="scss" scoped>
 @import '../scss/vars';
+@import '../scss/utilities';
 
 h1 {
   text-align: center;

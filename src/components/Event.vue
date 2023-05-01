@@ -56,7 +56,7 @@ const dateStr = transformDates(startDate, endDate);
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/utiltities';
+@import '../scss/utilities';
 @import '../scss/vars';
 .event {
   padding: 1.5em 2em;

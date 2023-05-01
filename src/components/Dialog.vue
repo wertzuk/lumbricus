@@ -27,7 +27,7 @@ const store = inject('store');
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/utiltities';
+@import '../scss/utilities';
 @import '../scss/vars';
 .dialog {
   padding-block: 1.5rem;

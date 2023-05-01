@@ -18,7 +18,7 @@ function closeMenu() {
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/utiltities';
+@import '../scss/utilities';
 @import '../scss/vars';
 
 li:first-child {

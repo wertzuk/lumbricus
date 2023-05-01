@@ -29,7 +29,7 @@ const store = inject('store');
 </script>
 
 <style lang="scss">
-@import '../scss/utiltities';
+@import '../scss/utilities';
 @import '../scss/vars';
 
 .header {

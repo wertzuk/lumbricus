@@ -47,7 +47,7 @@ const width = computed(() => store.state.innerWidth);
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/utiltities';
+@import '../scss/utilities';
 @import '../scss/vars';
 
 .nav {
