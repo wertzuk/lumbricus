@@ -8,6 +8,11 @@ import Header from '@/components/Header.vue';
 import { provide } from 'vue';
 import store from '@/store';
 
+window.addEventListener(
+  'resize',
+  () => (store.state.innerWidth = window.innerWidth),
+);
+
 provide('store', store);
 </script>
 

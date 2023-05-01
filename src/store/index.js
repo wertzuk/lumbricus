@@ -31,8 +31,9 @@ const state = reactive({
     title: '',
     active: false,
   },
-  menuActive: true,
+  menuActive: false,
   showSuccessMessage: true,
+  innerWidth: window.innerWidth,
   success: {
     active: false,
     isSuccess: false,

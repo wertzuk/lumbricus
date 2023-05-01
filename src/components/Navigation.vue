@@ -1,54 +1,49 @@
 <template>
   <nav
     class="nav flex justify-between align-center"
-    v-if="store.state.menuActive"
+    v-if="store.state.menuActive || width > 800"
   >
     <ul class="flex justify-between nav__list">
-      <li><router-link to="/">Home</router-link></li>
+      <NavigationBasicItem route="/">Home</NavigationBasicItem>
       <li @click.stop="listActive = !listActive">
         <span to="/">Programm</span>
         <img src="../assets/icons/icon-arrow.svg" alt="" class="icon-down" />
         <ul class="program" :class="{ hidden: !listActive }">
-          <li>
-            <router-link to="/lesungen">Lesungen</router-link>
-          </li>
-          <li><router-link to="/erlebniskurse">Erlebniskurse</router-link></li>
-          <li><router-link to="/wanderungen">Wanderungen</router-link></li>
-          <li>
-            <router-link to="/geburtstage" class="last"
-              >Waldgeburtstage</router-link
-            >
-          </li>
+          <NavigationNestedItem route="/lesungen"
+            >Lesungen</NavigationNestedItem
+          >
+
+          <NavigationNestedItem route="/erlebniskurse"
+            >Erlebniskurse</NavigationNestedItem
+          >
+          <NavigationNestedItem route="/wanderungen"
+            >Wanderungen</NavigationNestedItem
+          >
+          <NavigationNestedItem route="/geburtstage"
+            >Waldgeburtstage</NavigationNestedItem
+          >
         </ul>
       </li>
-      <li><router-link to="/about">Über uns</router-link></li>
-      <li><router-link to="/gaestebuch">Gästebuch</router-link></li>
+      <NavigationBasicItem route="/about">Über uns</NavigationBasicItem>
+      <NavigationBasicItem route="/gaestebuch">Gästebuch</NavigationBasicItem>
     </ul>
   </nav>
 </template>
 
 <script setup>
-import { ref, inject, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, inject } from 'vue';
+import NavigationBasicItem from '@/components/NavigationBasicItem.vue';
+import NavigationNestedItem from '@/components/NavigationNestedItem.vue';
 
 const store = inject('store');
 const listActive = ref(false);
 document.body.addEventListener('click', () => {
   listActive.value = false;
 });
+const li = document.querySelectorAll('li');
+console.log(li);
 
-function useBreakpoints() {
-  let windowWidth = ref(window.innerWidth);
-
-  const onWidthChange = () => (windowWidth.value = window.innerWidth);
-  onMounted(() => window.addEventListener('resize', onWidthChange));
-  onUnmounted(() => window.removeEventListener('resize', onWidthChange));
-
-  const width = computed(() => windowWidth.value);
-  console.log(width);
-
-  return { width };
-}
-useBreakpoints();
+const width = computed(() => store.state.innerWidth);
 </script>
 
 <style lang="scss" scoped>
