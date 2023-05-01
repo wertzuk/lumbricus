@@ -85,42 +85,19 @@ const width = computed(() => store.state.innerWidth);
   }
 
   .icon-down {
-    margin-left: 1rem;
     transform: rotate(90deg);
+    margin: 0 1rem 6px;
   }
 }
 
 .program {
   position: absolute;
   border: $border-nav;
-  // border-radius: 18px;
   top: 1rem;
   left: 0;
   right: 0;
-
   z-index: 100;
   overflow: hidden;
-  li:first-child {
-    margin-top: 4rem;
-  }
-  li {
-    border-bottom: $border-nav;
-    background: $main-clr-bg;
-    transition: all 300ms;
-
-    &:last-child {
-      border: none;
-    }
-    &:hover {
-      background: #ccf7bd;
-    }
-  }
-  a {
-    padding: 1rem;
-    display: block;
-    font-size: $fs-small;
-    text-transform: none;
-  }
 }
 
 .search,
