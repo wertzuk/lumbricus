@@ -28,9 +28,7 @@
   <div class="right-img"></div>
 
   <div class="list">
-    <h1 class="section-heading" ref="offering">
-      Unser Programmangebot in der Übersicht:
-    </h1>
+    <h1 class="section-heading" ref="offering">Unser Angebot</h1>
     <div class="program-grid">
       <div>
         <span>Wildkräuterwanderungen (mit Verkostung)</span
@@ -203,10 +201,11 @@ onMounted(async () => {
 
 .section-heading {
   font-family: 'Alwyn New', sans-serif;
-  font-size: $fs-900;
+  font-size: $fs-1000;
   letter-spacing: 1px;
   color: $clr-text-400;
   text-align: center;
+  font-weight: bold;
   p {
     font-size: 2rem;
     font-weight: 400;
