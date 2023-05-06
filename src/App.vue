@@ -1,6 +1,9 @@
 <template>
   <Header />
   <router-view />
+  <footer>
+    <router-link to="/impressum">Impressum</router-link>
+  </footer>
 </template>
 
 <script setup>
@@ -25,6 +28,17 @@ provide('store', store);
 @font-face {
   font-family: 'Alwyn New';
   src: url('./assets/fonts/alwyn.woff2') format('woff2');
+}
+
+footer {
+  padding: 2rem;
+  background: rgb(16, 73, 16);
+  color: black;
+  text-align: center;
+  a {
+    color: white;
+    font-size: $fs-450;
+  }
 }
 
 body {

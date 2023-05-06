@@ -7,6 +7,7 @@ import Geburtstage from '../views/Waldgeburtstage.vue';
 import NewEvent from '../views/NewEvent.vue';
 import Gaestebuch from '../views/Gaestebuch.vue';
 import About from '../views/About.vue';
+import Impressum from '../views/Impressum.vue';
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About,
+  },
+  {
+    path: '/impressum',
+    name: 'Impressum',
+    component: Impressum,
   },
   {
     path: '/gaestebuch',
