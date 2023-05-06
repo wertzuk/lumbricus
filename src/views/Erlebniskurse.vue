@@ -1,12 +1,8 @@
 <template>
-  <header>
-    <h1 class="section-heading">Erlebniskurse</h1>
-  </header>
-  <div class="flex">
-    <div class="image-container">
-      <Carousel :images="sources2" />
-    </div>
+  <header></header>
+  <main class="flex">
     <div class="text-container">
+      <h1 class="section-heading">Erlebniskurse</h1>
       <p>
         Auch nach über sieben Jahren erfreuen sich unsere
         Wildkräuter-Exkursionen immer noch großer Beliebtheit. Die festen
@@ -65,7 +61,10 @@
         Freude bereitet und noch lange nachwirkt!
       </p>
     </div>
-  </div>
+    <div class="corousel-container">
+      <Carousel :images="sources2" />
+    </div>
+  </main>
 </template>
 
 <script setup>
@@ -81,25 +80,45 @@ const { sources2 } = imageSources;
 <style lang="scss" scoped>
 @import '../scss/vars';
 
-h1 {
-  text-align: center;
+main {
+  flex-direction: row-reverse;
 }
-.image-container {
-  flex-basis: 40%;
-  padding: 2rem;
+h1 {
+  margin-bottom: 2rem;
+}
+.corousel-container {
   height: 80vh;
+  flex-basis: 40%;
+
+  .image-container {
+    padding: 2rem;
+  }
+  margin: 2rem;
 }
 .text-container {
-  flex-basis: 50%;
-  padding: 2rem;
+  flex-basis: 60%;
   font-size: $fs-400;
   color: $clr-text-400;
+  padding: 0 5rem;
+  margin-top: 1rem;
   p {
     margin-bottom: 1em;
   }
 }
 
-li {
-  list-style: disc;
+@media only screen and(max-width: $break-point) {
+  main {
+    display: block !important;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .text-container {
+    padding: 0 2rem;
+  }
+
+  .corousel-container {
+    margin: 2rem;
+  }
 }
 </style>

@@ -36,10 +36,10 @@ body {
 
 .section-heading {
   font-family: 'Alwyn New', sans-serif;
-  font-size: $fs-900;
+  font-size: $fs-1000;
   letter-spacing: 1px;
   color: $clr-text-400;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .main-heading {
@@ -69,5 +69,11 @@ body {
 }
 .hidden {
   display: none;
+}
+
+@media only screen and(max-width: $break-point) {
+  .section-heading {
+    font-size: $fs-800;
+  }
 }
 </style>

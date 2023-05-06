@@ -1,12 +1,7 @@
 <template>
-  <header>
-    <h1 class="section-heading">Wanderungen</h1>
-  </header>
   <main class="flex">
-    <div class="image-container">
-      <Carousel :images="sources3" />
-    </div>
     <div class="text-container">
+      <h1 class="section-heading">Wanderungen</h1>
       <p>
         Unsere Wanderungen bieten nicht nur viele naturkundliche Informationen,
         sie sind auch literarisch begleitet und bieten so einen „Mehrwert“ an
@@ -66,6 +61,9 @@
         Anfragen und beraten Sie individuell.
       </p>
     </div>
+    <div class="corousel-container">
+      <Carousel :images="sources3" />
+    </div>
   </main>
 </template>
 
@@ -81,25 +79,45 @@ const { sources3 } = imageSources;
 
 <style lang="scss" scoped>
 @import '../scss/vars';
+main {
+  flex-direction: row-reverse;
+}
 h1 {
-  text-align: center;
+  margin-bottom: 2rem;
 }
-.top {
-  display: flex;
-}
-.image-container {
-  flex-basis: 40%;
-  padding: 2rem;
+.corousel-container {
   height: 80vh;
-}
+  flex-basis: 40%;
 
+  .image-container {
+    padding: 2rem;
+  }
+  margin: 2rem;
+}
 .text-container {
-  flex-basis: 50%;
-  padding: 2rem;
+  flex-basis: 60%;
   font-size: $fs-400;
   color: $clr-text-400;
+  padding: 0 5rem;
+  margin-top: 1rem;
   p {
     margin-bottom: 1em;
+  }
+}
+
+@media only screen and(max-width: $break-point) {
+  main {
+    display: block !important;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .text-container {
+    padding: 0 2rem;
+  }
+
+  .corousel-container {
+    margin: 2rem;
   }
 }
 </style>
