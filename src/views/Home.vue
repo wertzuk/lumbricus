@@ -31,38 +31,57 @@
     <h1 class="section-heading" ref="offering">Unser Angebot</h1>
     <div class="program-grid">
       <div>
-        <span>Wildkräuterwanderungen (mit Verkostung)</span
-        ><img src="../assets/wk.jpg" alt="" loading="lazy" />
+        <router-link to="/wanderungen">
+          <span>Wildkräuterwanderungen (mit Verkostung)</span
+          ><img src="../assets/wk.jpg" alt="" loading="lazy" />
+        </router-link>
       </div>
       <div>
-        <span>Kräuterseminare</span><img src="../assets/seminare.jpg" alt="" />
+        <router-link to="/erlebniskurse">
+          <span>Kräuterseminare</span
+          ><img src="../assets/seminare.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span>Erlebniskurse</span><img src="../assets/erlebnis.jpg" alt="" />
+        <router-link to="/erlebniskurse">
+          <span>Erlebniskurse</span><img src="../assets/erlebnis.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span>Vortragsveranstaltungen</span
-        ><img src="../assets/lesung2.jpg" alt="" />
+        <router-link to="/lesungen">
+          <span>Vortragsveranstaltungen</span
+          ><img src="../assets/lesung2.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span>Walderlebnistage</span
-        ><img src="../assets/erlebnis2.jpg" alt="" />
+        <router-link to="/geburtstage">
+          <span>Walderlebnistage</span
+          ><img src="../assets/erlebnis2.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span>Ferienprogramme / Nachmittagsbetreuung</span
-        ><img src="../assets/ferien.jpg" alt="" />
+        <router-link to="/geburtstage">
+          <span>Ferienprogramme / Nachmittagsbetreuung</span
+          ><img src="../assets/ferien.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span>Märchenwanderungen</span
-        ><img src="../assets/wanderung.jpg" alt="" />
+        <router-link to="/wanderungen">
+          <span>Märchenwanderungen</span
+          ><img src="../assets/wanderung.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span> umweltbezogene Unterrichtsbegleitung </span
-        ><img src="../assets/betreuung.jpg" alt="" />
+        <router-link to="/lesungen">
+          <span> umweltbezogene Unterrichtsbegleitung </span
+          ><img src="../assets/betreuung.jpg" alt="" />
+        </router-link>
       </div>
       <div>
-        <span>Lesungen zu allen Anlässen</span
-        ><img src="../assets/lesung3.jpg" alt="" />
+        <router-link to="/lesungen">
+          <span>Lesungen zu allen Anlässen</span
+          ><img src="../assets/lesung3.jpg" alt="" />
+        </router-link>
       </div>
     </div>
   </div>
@@ -236,12 +255,20 @@ onMounted(async () => {
   gap: 2.5rem;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
 
+  a {
+    position: absolute;
+    inset: 0;
+  }
   & > div {
     aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
     border-radius: 16px;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.03);
+    }
     span {
       position: absolute;
       bottom: 0;
