@@ -35,6 +35,7 @@ footer {
   background: rgb(16, 73, 16);
   color: black;
   text-align: center;
+  margin-top: 4rem;
   a {
     color: white;
     font-size: $fs-450;

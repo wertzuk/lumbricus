@@ -25,12 +25,10 @@
     />
     <button class="btn" @click.prevent="submit">Veranstaltung erstellen</button>
   </form>
-  <div class="dialog1" v-if="success">Erfolgreich erstellt</div>
 </template>
 
 <script setup>
-import { useStore } from 'vuex';
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 import { useRouter } from 'vue-router';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@vueup/vue-quill/dist/vue-quill.bubble.css';
@@ -41,12 +39,11 @@ const content = ref('');
 const dateStart = ref('');
 const dateEnd = ref('');
 const title = ref('');
-const success = ref(false);
 const router = useRouter();
 
 const dialog = ref(null);
 
-const store = useStore();
+const store = inject('store');
 let quillEditor = null;
 
 function start(quill) {
@@ -56,8 +53,6 @@ function start(quill) {
 }
 
 async function submit() {
-  console.log(dialog.value);
-
   const post = {
     title: title.value,
     dateStart: dateStart.value,
@@ -72,12 +67,13 @@ async function submit() {
     },
   );
   if (response.ok) {
-    success.value = true;
-    alert('Erstellt');
+    // alert('Erstellt');
+    store.methods.displaySuccessMessage(true, 'Erfolgreich erstellt');
+
     router.push('/');
   }
 
-  store.state.posts.push(post);
+  store.state.events.push(post);
   title.value = '';
   dateStart.value = '';
   dateEnd.value = '';

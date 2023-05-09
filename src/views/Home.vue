@@ -88,7 +88,7 @@
   <section class="events">
     <div class="events__heading flex justify-between align-center">
       <h1 class="section-heading" ref="events">Aktuelle Veranstaltungen</h1>
-      <router-link to="/event" class="new-event"
+      <router-link to="/event" class="new-event" v-if="store.state.loggedIn"
         >Neue Veranstaltung erstellen</router-link
       >
     </div>
@@ -111,7 +111,7 @@
     </ul>
   </section>
   <Dialog />
-  <Popup title="test" success />
+  <Popup />
 </template>
 
 <script setup>
@@ -402,9 +402,6 @@ onMounted(async () => {
     h1 {
       font-size: $fs-600;
     }
-  }
-
-  .section-heading h1 {
   }
 }
 

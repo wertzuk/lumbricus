@@ -39,12 +39,14 @@ const state = reactive({
     isSuccess: false,
     message: '',
   },
+  loggedIn: false,
 });
 
 const methods = {
   async getEvents() {
     const BASE_URL =
       'https://d54700af-37fc-4fc9-b440-ef8a6480bb63.mock.pstmn.io/lumbricus/server/api';
+    // 'http://localhost/lumbricus/server/api';
     const response = await fetch(`${BASE_URL}/posts.php`);
     const { data } = await response.json();
     state.events = data;
@@ -78,6 +80,9 @@ const getters = {
 
       return date.getTime() >= eventDate.getTime();
     });
+  },
+  isLoggedIn() {
+    return state.loggedIn;
   },
 };
 
