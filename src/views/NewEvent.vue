@@ -1,6 +1,6 @@
 <template>
   <h1 class="section-heading">Neue Veranstaltung hinzufügen</h1>
-  <form class="event-form">
+  <form @submit.prevent="submit" class="event-form">
     <div class="form-row flex flex-col">
       <label for="title">Titel</label>
       <input type="text" id="title" v-model="title" required />
@@ -23,7 +23,7 @@
       v-model:content="content"
       @ready="(quill) => start(quill)"
     />
-    <button class="btn" @click.prevent="submit">Veranstaltung erstellen</button>
+    <button class="btn">Veranstaltung erstellen</button>
   </form>
 </template>
 
