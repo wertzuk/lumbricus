@@ -38,7 +38,6 @@ li {
 }
 a {
   color: $clr-text-400;
-
   padding: 1rem;
   display: block;
   font-size: $fs-small;

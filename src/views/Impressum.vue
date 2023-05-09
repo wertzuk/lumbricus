@@ -96,6 +96,8 @@
 <style lang="scss" scoped>
 .entry-content {
   padding: 2rem 3rem;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .entry-header {

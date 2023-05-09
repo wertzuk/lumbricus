@@ -25,7 +25,7 @@
         </ul>
       </li>
       <NavigationBasicItem route="/about">Über uns</NavigationBasicItem>
-      <NavigationBasicItem route="/gaestebuch">Gästebuch</NavigationBasicItem>
+      <NavigationBasicItem route="/">Gästebuch</NavigationBasicItem>
     </ul>
   </nav>
 </template>

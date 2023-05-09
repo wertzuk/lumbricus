@@ -148,7 +148,7 @@ onMounted(async () => {
 @import '../scss/vars';
 
 .welcome {
-  height: calc(100vh - 91.2px);
+  height: calc(100vh - 89.6px);
   overflow: hidden;
   .logo {
     clip-path: circle(60.7% at 19% 28%);
