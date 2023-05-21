@@ -25,7 +25,11 @@
         </ul>
       </li>
       <NavigationBasicItem route="/about">Über uns</NavigationBasicItem>
-      <NavigationBasicItem route="/">Gästebuch</NavigationBasicItem>
+      <!-- <NavigationBasicItem route="/">Gästebuch</NavigationBasicItem> -->
+      <li class="login" @click="store.state.loginActive = true">
+        <button>Login</button>
+      </li>
+      <Login />
     </ul>
   </nav>
 </template>
@@ -34,6 +38,7 @@
 import { ref, computed, inject } from 'vue';
 import NavigationBasicItem from '@/components/NavigationBasicItem.vue';
 import NavigationNestedItem from '@/components/NavigationNestedItem.vue';
+import Login from '@/components/Login.vue';
 
 const store = inject('store');
 const listActive = ref(false);
@@ -112,9 +117,12 @@ const width = computed(() => store.state.innerWidth);
   background: $clr-text-400;
   color: white;
 }
-.search {
-  color: $clr-text-400;
-  border: 1px solid $clr-text-400;
+
+.login {
+  position: absolute !important;
+  display: block;
+  top: 0.6rem;
+  right: 1rem;
 }
 
 @media only screen and(max-width: 800px) {
@@ -137,6 +145,12 @@ const width = computed(() => store.state.innerWidth);
         padding: 0.5rem 1.3rem;
       }
     }
+  }
+
+  .login {
+    top: unset;
+    bottom: 1rem;
+    left: 1rem;
   }
 }
 </style>

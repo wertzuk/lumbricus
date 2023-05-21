@@ -33,6 +33,12 @@ const store = inject('store');
 @import '../scss/vars';
 
 .header {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  z-index: 100;
+  background: $main-clr-bg;
   position: relative;
   padding-inline: 3rem;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);

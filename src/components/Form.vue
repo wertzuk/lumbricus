@@ -55,6 +55,7 @@ const tel = ref(null);
 const adults = ref(null);
 const children = ref(null);
 const comment = ref(null);
+const loggedIn = ref(false);
 
 const store = inject('store');
 const { id } = store.state.modal;

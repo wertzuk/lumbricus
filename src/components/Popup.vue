@@ -27,7 +27,7 @@ const store = inject('store');
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
   font-size: $fs-400;
-  color: rgb(197, 190, 190);
+  color: rgb(238, 233, 233);
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
   transition: transform 0.2s;
