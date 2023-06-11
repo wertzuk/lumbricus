@@ -26,8 +26,15 @@
       </li>
       <NavigationBasicItem route="/about">Über uns</NavigationBasicItem>
       <!-- <NavigationBasicItem route="/">Gästebuch</NavigationBasicItem> -->
-      <li class="login" @click="store.state.loginActive = true">
+      <li
+        class="login"
+        v-if="!store.state.loggedIn"
+        @click="store.state.loginActive = true"
+      >
         <button>Login</button>
+      </li>
+      <li class="login" v-else>
+        <button>Logout</button>
       </li>
       <Login />
     </ul>
@@ -46,7 +53,6 @@ document.body.addEventListener('click', () => {
   listActive.value = false;
 });
 const li = document.querySelectorAll('li');
-console.log(li);
 
 const width = computed(() => store.state.innerWidth);
 </script>

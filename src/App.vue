@@ -17,6 +17,22 @@ window.addEventListener(
 );
 
 provide('store', store);
+
+const token = localStorage.getItem('token');
+if (token) {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({ token }),
+  };
+  fetch('http://localhost/lumbricus/server/api/verify.php', options).then(
+    (response) => {
+      if (response.ok) store.state.loggedIn = true;
+      else {
+        store.state.loggedIn = false;
+      }
+    },
+  );
+}
 </script>
 
 <style lang="scss">

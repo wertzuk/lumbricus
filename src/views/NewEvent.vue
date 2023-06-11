@@ -59,11 +59,15 @@ async function submit() {
     dateEnd: dateEnd.value,
     content: content.value,
   };
+  const token = localStorage.getItem('token');
   const response = await fetch(
     'http://localhost/lumbricus/server/api/posts.php',
     {
       method: 'POST',
       body: JSON.stringify(post),
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
     },
   );
   if (response.ok) {

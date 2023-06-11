@@ -48,6 +48,9 @@ const submitForm = async () => {
     store.methods.displaySuccessMessage(false, 'Login fehlgeschlagen');
   } else {
     store.methods.displaySuccessMessage(true, 'Erfolgreich angemeldet');
+    const { token } = await response.json();
+    localStorage.setItem('token', token);
+    store.state.loggedIn = true;
     store.state.loginActive = false;
   }
 };

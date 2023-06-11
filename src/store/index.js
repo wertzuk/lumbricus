@@ -32,6 +32,7 @@ const state = reactive({
     active: false,
   },
   menuActive: false,
+  loginActive: false,
   showSuccessMessage: true,
   innerWidth: window.innerWidth,
   success: {
