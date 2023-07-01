@@ -92,11 +92,14 @@
         >Neue Veranstaltung erstellen</router-link
       >
     </div>
+
+    <div class="filters flex">
+      <button class="btn" @click="sortUpcoming = true">Anstehende</button>
+      <button class="btn" @click="sortUpcoming = false">Vergangene</button>
+    </div>
+
     <ul class="event-list">
-      <li
-        v-for="event in store.getters.filterByMonth(upcoming)"
-        :key="event.id"
-      >
+      <li v-for="event in filtered" :key="event.id">
         <Event
           :eventId="event.id"
           :title="event.title"
@@ -119,13 +122,23 @@ import Event from '@/components/Event.vue';
 import Button from '@/components/Button.vue';
 import Dialog from '@/components/Dialog.vue';
 import Popup from '@/components/Popup.vue';
-import { onMounted, ref, inject } from 'vue';
+import { onMounted, ref, inject, computed, reactive } from 'vue';
 
 const store = inject('store');
 const offering = ref(null);
 const events = ref(null);
 
-const upcoming = ref(true);
+const sortUpcoming = ref(true);
+
+const filtered = computed(() => {
+  const date = new Date();
+  return store.state.events.filter((event) => {
+    const eventDateStart = new Date(event.dateStart);
+    return sortUpcoming.value
+      ? date.getTime() < eventDateStart.getTime()
+      : date.getTime() > eventDateStart.getTime();
+  });
+});
 
 function scrollToElement() {
   if (events.value) {
@@ -320,6 +333,20 @@ onMounted(async () => {
   }
   .btn-month.active {
     background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.filters {
+  gap: 1rem;
+  button {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.3rem 1rem;
+    font-weight: lighter;
+    transition: all 0.2s;
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
   }
 }
 

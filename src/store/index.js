@@ -71,17 +71,6 @@ const methods = {
 };
 
 const getters = {
-  filterByMonth(upcoming = true) {
-    const date = new Date('2022-07-21T12:17:52.650Z');
-    return state.events.filter((event) => {
-      const eventDate = new Date(event.dateStart);
-      if (upcoming) {
-        return date.getTime() < eventDate.getTime();
-      }
-
-      return date.getTime() >= eventDate.getTime();
-    });
-  },
   isLoggedIn() {
     return state.loggedIn;
   },

@@ -239,4 +239,31 @@ h1 {
     object-fit: cover;
   }
 }
+
+@media only screen and(max-width: $break-point) {
+  h1 {
+    margin: 1rem;
+    font-size: $fs-700;
+  }
+  .text-container {
+    padding-inline: 0;
+  }
+  .point {
+    flex-direction: column;
+    max-height: unset;
+
+    h3 {
+      margin-bottom: 1rem;
+    }
+
+    .point_image {
+      display: block;
+      width: 100%;
+    }
+    img {
+      width: 100%;
+      aspect-ratio: 3/2;
+    }
+  }
+}
 </style>
