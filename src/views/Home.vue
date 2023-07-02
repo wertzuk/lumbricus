@@ -94,8 +94,20 @@
     </div>
 
     <div class="filters flex">
-      <button class="btn" @click="sortUpcoming = true">Anstehende</button>
-      <button class="btn" @click="sortUpcoming = false">Vergangene</button>
+      <button
+        class="btn"
+        :class="{ active: sortUpcoming }"
+        @click="sortUpcoming = true"
+      >
+        Anstehende
+      </button>
+      <button
+        class="btn"
+        @click="sortUpcoming = false"
+        :class="{ active: !sortUpcoming }"
+      >
+        Vergangene
+      </button>
     </div>
 
     <ul class="event-list">
@@ -145,7 +157,6 @@ function scrollToElement() {
     events.value.scrollIntoView({ behavior: 'smooth' });
   }
 }
-
 function scrollToOffering() {
   if (offering.value) {
     offering.value.scrollIntoView({ behavior: 'smooth' });
@@ -338,6 +349,7 @@ onMounted(async () => {
 
 .filters {
   gap: 1rem;
+  margin-block: 2rem;
   button {
     border: 1px solid black;
     border-radius: 0.5rem;
@@ -347,6 +359,9 @@ onMounted(async () => {
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
+  }
+  button.active {
+    background: rgba(218, 251, 216, 0.5);
   }
 }
 
