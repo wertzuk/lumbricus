@@ -12,11 +12,14 @@
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
     <button class="sign-in btn" @click="showDialog">Zur Anmeldung</button>
+    <button class="btn" @click="editEvent">Bearbeiten</button>
   </div>
 </template>
 
 <script setup>
 import { ref, inject } from 'vue';
+import { useRouter } from 'vue-router';
+
 import { transformDates } from '@/utils/utils';
 
 const props = defineProps({
@@ -39,6 +42,7 @@ const props = defineProps({
 const store = inject('store');
 const dialog = ref(null);
 const active = ref(false);
+const router = useRouter();
 
 function showDialog() {
   const { modal } = store.state;
@@ -47,6 +51,15 @@ function showDialog() {
   modal.active = true;
   store.state.modalActive = true;
   document.body.style.overflowY = 'hidden';
+}
+
+function editEvent() {
+  store.state.eventSelected.id = props.eventId;
+  store.state.eventSelected.title = props.title;
+  store.state.eventSelected.dateStart = props.startDate;
+  store.state.eventSelected.dateEnd = props.endDate;
+  store.state.eventSelected.content = props.detailHTML;
+  router.push('/edit');
 }
 
 const startDate = new Date(props.startDate);

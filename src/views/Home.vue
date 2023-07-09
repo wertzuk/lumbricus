@@ -356,12 +356,13 @@ onMounted(async () => {
     padding: 0.3rem 1rem;
     font-weight: lighter;
     transition: all 0.2s;
-    &:hover {
+    &:hover,
+    &.active {
       background: rgba(0, 0, 0, 0.1);
+      background: rgba(218, 251, 216, 0.5);
     }
   }
   button.active {
-    background: rgba(218, 251, 216, 0.5);
   }
 }
 
@@ -409,6 +410,10 @@ onMounted(async () => {
   }
   .sub-heading {
     flex-direction: column;
+  }
+
+  .filters {
+    justify-content: center;
   }
   .list {
     margin: 6rem 0;

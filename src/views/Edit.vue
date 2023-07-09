@@ -23,7 +23,7 @@
       v-model:content="content"
       @ready="(quill) => start(quill)"
     />
-    <button class="btn">Veranstaltung erstellen</button>
+    <button class="btn">Speichern</button>
   </form>
 </template>
 
@@ -34,16 +34,17 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import '@vueup/vue-quill/dist/vue-quill.bubble.css';
 import { QuillEditor } from '@vueup/vue-quill';
 
-const editor = ref(null);
-const content = ref('');
-const dateStart = ref('');
-const dateEnd = ref('');
-const title = ref('');
-const router = useRouter();
+const store = inject('store');
 
+const event = store.state.eventSelected;
+const editor = ref(null);
+const content = ref(event.content);
+const dateStart = ref(event.dateStart);
+const dateEnd = ref(event.dateEnd);
+const title = ref(event.title);
+const router = useRouter();
 const dialog = ref(null);
 
-const store = inject('store');
 let quillEditor = null;
 
 function start(quill) {
@@ -59,12 +60,11 @@ async function submit() {
     dateEnd: dateEnd.value,
     content: content.value,
   };
-  console.log(content.value);
   const token = localStorage.getItem('token');
   const response = await fetch(
-    'http://localhost/lumbricus/server/api/posts.php',
+    `http://localhost/lumbricus/server/api/posts.php?id=${event.id}`,
     {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify(post),
       headers: {
         authorization: `Bearer ${token}`,
@@ -72,13 +72,11 @@ async function submit() {
     },
   );
   if (response.ok) {
-    // alert('Erstellt');
-    store.methods.displaySuccessMessage(true, 'Erfolgreich erstellt');
+    store.methods.displaySuccessMessage(true, 'Erfolgreich bearbeitet');
 
     router.push('/');
   }
 
-  store.state.events.push(post);
   title.value = '';
   dateStart.value = '';
   dateEnd.value = '';
