@@ -1,5 +1,14 @@
 <template>
   <div class="event" @click="toggleActive" :class="{ active: active }">
+    <div class="icons" v-if="store.state.loggedIn">
+      <img
+        src="../assets/icons/icon_edit.png"
+        alt=""
+        @click="editEvent"
+        title="Bearbeiten"
+      />
+      <img src="../assets/icons/icon_del.png" alt="" title="Löschen" />
+    </div>
     <div class="event__header justify-between align-center">
       <div class="flex justify-between">
         <h2 class="event__title">
@@ -12,7 +21,6 @@
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
     <button class="sign-in btn" @click="showDialog">Zur Anmeldung</button>
-    <button class="btn" @click="editEvent">Bearbeiten</button>
   </div>
 </template>
 
@@ -108,6 +116,22 @@ const dateStr = transformDates(startDate, endDate);
   img {
     height: 50px;
     transition: transform 0.3s;
+  }
+}
+
+.icons {
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  img {
+    width: 25px;
+    height: 25px;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 

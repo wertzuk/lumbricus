@@ -85,14 +85,18 @@
       </div>
     </div>
   </div>
+
   <section class="events">
     <div class="events__heading flex justify-between align-center">
       <h1 class="section-heading" ref="events">Aktuelle Veranstaltungen</h1>
-      <router-link to="/event" class="new-event" v-if="store.state.loggedIn"
-        >Neue Veranstaltung erstellen</router-link
-      >
     </div>
 
+    <div class="new-container">
+      <router-link to="/event" class="new-event" v-if="store.state.loggedIn"
+        ><img src="../assets/icons/icon_new.png" alt="" />Neue Veranstaltung
+        erstellen</router-link
+      >
+    </div>
     <div class="filters flex">
       <button
         class="btn"
@@ -259,11 +263,22 @@ onMounted(async () => {
   margin: 10rem 2rem;
 }
 
+.new-container {
+  margin-block: 2rem 3rem;
+}
+
 .new-event {
-  padding: 0.4em 1em;
+  padding: 0.8em 1.5em;
   border: 1px solid rgba(0, 0, 0, 0.3);
   color: $clr-text-400;
   transition: all 0.2s;
+  border-radius: 1rem;
+
+  img {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+  }
   &:hover {
     background: rgba(0, 0, 0, 0.2);
   }
@@ -361,8 +376,6 @@ onMounted(async () => {
       background: rgba(0, 0, 0, 0.1);
       background: rgba(218, 251, 216, 0.5);
     }
-  }
-  button.active {
   }
 }
 

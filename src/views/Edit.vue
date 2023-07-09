@@ -1,5 +1,5 @@
 <template>
-  <h1 class="section-heading">Neue Veranstaltung hinzufügen</h1>
+  <h1 class="section-heading">Veranstaltung bearbeiten</h1>
   <form @submit.prevent="submit" class="event-form box-shadow">
     <div class="form-row flex flex-col">
       <label for="title">Titel</label>
