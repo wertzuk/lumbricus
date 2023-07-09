@@ -25,7 +25,9 @@
       </div>
     </div>
     <div class="event__detail" v-html="detailHTML"></div>
-    <button class="sign-in btn" @click="showDialog">Zur Anmeldung</button>
+    <button class="sign-in btn" @click="showDialog" v-if="props.upcoming">
+      Zur Anmeldung
+    </button>
   </div>
 </template>
 
@@ -50,6 +52,9 @@ const props = defineProps({
   },
   detailHTML: {
     type: String,
+  },
+  upcoming: {
+    type: Boolean,
   },
 });
 const store = inject('store');
@@ -76,7 +81,7 @@ function editEvent() {
 }
 
 async function deleteEvent() {
-  if (confirm('Sind Sie sicher?')) {
+  if (confirm('Wirklich löschen?')) {
     const token = localStorage.getItem('token');
     const response = await fetch(
       `http://localhost/lumbricus/server/api/posts.php?id=${props.eventId}`,
