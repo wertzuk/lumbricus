@@ -3,11 +3,16 @@
     <div class="icons" v-if="store.state.loggedIn">
       <img
         src="../assets/icons/icon_edit.png"
-        alt=""
+        alt="Bearbeiten"
         @click="editEvent"
         title="Bearbeiten"
       />
-      <img src="../assets/icons/icon_del.png" alt="" title="Löschen" />
+      <img
+        src="../assets/icons/icon_del.png"
+        @click="deleteEvent"
+        alt="Löschen"
+        title="Löschen"
+      />
     </div>
     <div class="event__header justify-between align-center">
       <div class="flex justify-between">
@@ -68,6 +73,29 @@ function editEvent() {
   store.state.eventSelected.dateEnd = props.endDate;
   store.state.eventSelected.content = props.detailHTML;
   router.push('/edit');
+}
+
+async function deleteEvent() {
+  if (confirm('Sind Sie sicher?')) {
+    const token = localStorage.getItem('token');
+    const response = await fetch(
+      `http://localhost/lumbricus/server/api/posts.php?id=${props.eventId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      },
+    );
+    if (response.ok) {
+      store.state.events = store.state.events.filter(
+        (event) => event.id !== props.eventId,
+      );
+      store.methods.displaySuccessMessage(false, 'Erfolgreich gelöscht');
+    } else {
+      store.methods.displaySuccessMessage(false, 'Löschen fehlgeschlagen');
+    }
+  }
 }
 
 const startDate = new Date(props.startDate);

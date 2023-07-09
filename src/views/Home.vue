@@ -147,6 +147,7 @@ const events = ref(null);
 const sortUpcoming = ref(true);
 
 const filtered = computed(() => {
+  console.log('fired');
   const date = new Date();
   return store.state.events.filter((event) => {
     const eventDateStart = new Date(event.dateStart);
